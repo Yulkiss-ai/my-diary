@@ -1,0 +1,21 @@
+
+{
+  "id": "./",
+  "name": "Мой Дневник",
+  "short_name": "Дневник",
+  "description": "Личный дневник с защищённым хранением записей",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F4F5",
+  "theme_color": "#2C3E46",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%232C3E46'/%3E%3Cpath d='M150 105h165l65 65v237H150z' fill='none' stroke='%23F2F4F5' stroke-width='22' stroke-linejoin='round'/%3E%3Cpath d='M315 105v70h65M195 235h140M195 290h140M195 345h95' fill='none' stroke='%23F2F4F5' stroke-width='18' stroke-linecap='round'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

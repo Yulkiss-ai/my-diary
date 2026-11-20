@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2c3e46">
+<meta name="description" content="Личный дневник — ваши мысли, заметки и рисунки в одном месте.">
+<link rel="manifest" href="./manifest.json">
+<title>Мой дневник</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link id="manifestLink" rel="manifest">
+<style>
+:root{--bg:#f2f4f5;--panel:#2c3e46;--card:#fff;--text:#17191b;--muted:#929698;--accent:#a3ad2b;--line:#e8e9e9;--shadow:0 8px 20px #00000020;--font:'Caveat',cursive}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:21px}button,input,select,textarea{font:inherit}button{cursor:pointer}
+body{transition:background .2s,color .2s}.topbar{height:82px;background:var(--panel);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc((100vw - 900px)/2));box-shadow:0 2px 6px #0002;position:sticky;top:0;z-index:5}
+.iconbtn{border:0;background:transparent;color:inherit;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;font-family:Arial,sans-serif;font-size:31px}.iconbtn:hover{background:#ffffff18}.top-actions{display:flex;gap:14px}.topbar svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+main{max-width:850px;margin:auto;padding:22px 18px 110px}.month-title{text-align:center;color:var(--muted);font-size:30px;margin:0 0 28px;font-weight:500}.entry{background:var(--card);border-radius:19px;box-shadow:var(--shadow);min-height:190px;margin:0 0 34px;padding:24px 28px;display:grid;grid-template-columns:125px 1fr;gap:16px;cursor:pointer;transition:transform .15s,box-shadow .15s}.entry:hover{transform:translateY(-2px);box-shadow:0 11px 24px #00000025}.entry-date{text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:0}.weekday{font-size:24px;line-height:1.2}.day{font-size:50px;line-height:1.12}.cloud{margin-top:auto;font:28px Arial,sans-serif;color:var(--muted);height:42px;display:grid;place-items:center}.entry-body{min-width:0;padding-top:2px}.entry-title{font-size:27px;font-weight:700;margin:0 0 12px;line-height:1.2;overflow-wrap:anywhere}.entry-preview{font-size:25px;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere;max-height:4.1em;overflow:hidden}.entry-mood{display:inline-block;font-size:.72em;vertical-align:middle;margin-left:5px}.entry-tag{font-size:16px;color:var(--muted);margin-top:10px}.empty{text-align:center;color:var(--muted);padding:65px 15px;font-size:25px}.fab{position:fixed;right:max(24px,calc((100vw - 850px)/2));bottom:28px;width:92px;height:92px;border-radius:50%;border:0;background:var(--accent);color:white;font:54px Arial,sans-serif;box-shadow:0 5px 12px #0003;z-index:4}.fab:hover{filter:brightness(1.05);transform:scale(1.03)}
+.overlay{position:fixed;inset:0;background:#0007;z-index:10;display:none;align-items:center;justify-content:center;padding:14px}.overlay.open{display:flex}.dialog{background:var(--card);color:var(--text);width:min(720px,100%);max-height:94vh;overflow:auto;border-radius:20px;padding:22px;box-shadow:0 20px 60px #0004}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.dialog h2{font-size:29px;margin:0}.close{border:0;background:transparent;font:28px Arial;color:var(--muted)}.field{display:block;margin:12px 0}.field label{display:block;color:var(--muted);font-size:18px;margin:0 0 4px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);padding:10px 12px;outline:none;font-size:20px}.field textarea{min-height:90px;resize:vertical}.toolbar{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.tool{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 11px;font-size:17px}.editor{min-height:180px;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg);outline:none;line-height:1.35;overflow-wrap:anywhere}.editor:empty:before{content:'Начните писать…';color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:16px}.primary,.secondary,.danger{border:0;border-radius:10px;padding:10px 17px}.primary{background:var(--accent);color:#fff}.secondary{background:var(--line);color:var(--text)}.danger{background:#b94a48;color:white;margin-left:auto}.status{font-size:15px;color:var(--muted);margin-left:auto}.draw-wrap{border:1px solid var(--line);border-radius:12px;padding:9px;margin-top:12px}.draw-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;font-size:17px}.draw-head input{width:42px;height:32px;border:0;background:transparent}.draw-canvas{width:100%;height:190px;display:block;background:#fff;border:1px dashed #bbb;border-radius:8px;touch-action:none}.sidebar{position:fixed;inset:0 auto 0 0;width:min(310px,85vw);background:var(--card);color:var(--text);z-index:12;box-shadow:8px 0 28px #0002;transform:translateX(-110%);transition:transform .2s;padding:24px;overflow:auto}.sidebar.open{transform:translateX(0)}.side-shade{position:fixed;inset:0;background:#0006;z-index:11;display:none}.side-shade.open{display:block}.side-title{font-size:29px;font-weight:bold;margin:5px 0 22px}.side-item{display:block;width:100%;text-align:left;padding:9px 12px;border:0;background:transparent;color:inherit;border-radius:9px;font-size:21px}.side-item.active,.side-item:hover{background:var(--bg)}.side-caption{color:var(--muted);font-size:16px;margin:20px 0 5px}.searchbar{display:none;max-width:850px;margin:12px auto 0;padding:0 18px}.searchbar.open{display:block}.searchbar input{width:100%;padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:20px}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid .field{margin:5px 0}.import-label{display:inline-block;cursor:pointer}.hint{font-size:16px;color:var(--muted);line-height:1.35}.confirm{max-width:390px}.confirm p{font-size:22px}
+body.theme-dark{--bg:#192328;--panel:#101a1f;--card:#26343a;--text:#edf1f2;--muted:#aab4b8;--line:#405158;--accent:#a5b13b;--shadow:0 8px 20px #0005}
+body.theme-sepia{--bg:#eee5d4;--panel:#514538;--card:#fbf3e4;--text:#3b3025;--muted:#96836c;--line:#e1d4bd;--accent:#a18b4d;--shadow:0 8px 20px #6c573322}
+body.font-inter{--font:'Inter',sans-serif}body.font-lora{--font:'Lora',serif}body.font-caveat{--font:'Caveat',cursive}
+
+/* Экран создания/редактирования по предоставленному референсу */
+
+.note-paper{position:relative;overflow:visible}
+.picker-popover{position:absolute;z-index:8;bottom:54px;background:var(--card);color:var(--text);border:1px solid var(--line,#ddd);border-radius:13px;padding:13px;box-shadow:0 8px 28px #0002;width:min(310px,calc(100vw - 54px))}
+.picker-popover[hidden]{display:none}
+.tag-picker{right:12px}
+.mood-picker{left:12px;width:min(340px,calc(100vw - 54px))}
+.picker-heading{font:600 15px/1.3 Arial,sans-serif;margin:0 0 10px;color:var(--text)}
+.picker-options{display:flex;flex-wrap:wrap;gap:7px}
+.picker-choice,.mood-choice{border:1px solid var(--line,#ddd);border-radius:9px;background:var(--bg);color:var(--text);padding:8px 10px;font:14px Arial,sans-serif;cursor:pointer}
+.picker-choice.selected,.mood-choice.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,var(--card))}
+.custom-tag-row{display:flex;gap:7px;margin-top:12px}
+.custom-tag-row input{min-width:0;flex:1;border:1px solid var(--line,#ddd);border-radius:8px;padding:9px;background:var(--bg);color:var(--text);font:14px Arial,sans-serif}
+.custom-tag-row button{border:0;border-radius:8px;background:var(--accent);color:#fff;padding:0 11px;font:13px Arial,sans-serif}
+.mood-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.mood-choice{text-align:left;display:flex;align-items:center;gap:8px}
+.mood-choice .emoji{font-size:21px}
+
+.note-screen{padding:0;align-items:stretch;justify-content:stretch;background:var(--bg)}
+.note-page{width:100%;height:100%;max-height:100%;overflow-y:auto;background:var(--bg);color:var(--text);font-family:var(--font);position:relative}
+.note-toolbar{height:69px;min-height:69px;background:var(--panel);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px;box-shadow:0 2px 6px #0002;position:sticky;top:0;z-index:3}
+.note-toolbar-right{display:flex;align-items:center;gap:25px}
+.note-icon{width:48px;height:52px;border:0;background:transparent;color:white;display:grid;place-items:center;padding:5px;font:34px Arial,sans-serif}
+.note-icon svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.note-date-line{height:59px;display:flex;align-items:center;gap:54px;padding:0 6%;color:#62676a;font-size:27px;position:relative}
+.note-date-line input{position:absolute;left:6%;top:12px;width:280px;height:35px;opacity:0;cursor:pointer}
+.note-paper{margin:0 4.3%;border:1px solid #dedede;border-radius:13px;background:#f5f5f5;box-shadow:0 1px 3px #0002;overflow:hidden;color:#777}
+.note-title-input{display:block;height:46px;padding:0 4px;border:0;border-bottom:2px solid #fff;border-left:3px solid var(--accent);margin:0 10px 0;width:calc(100% - 20px);background:transparent;color:#444;font:600 23px var(--font);outline:none}
+.note-title-input::placeholder{color:#c8c8c8;opacity:1}
+.note-content{margin:0 10px;min-height:150px;padding:8px 2px 8px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 26px,#dedede 27px,#dedede 28px);font:400 22px/1.25 var(--font);color:#4a4a4a;outline:none;white-space:pre-wrap;overflow-wrap:anywhere}
+.note-content:empty:before{content:attr(data-placeholder);color:#c8c8c8}
+.note-meta{height:47px;background:#fff;display:flex;align-items:center;gap:45px;padding:0 20px;color:#929292}
+.meta-action{display:flex;align-items:center;gap:8px;border:0;background:transparent;color:#929292;font:400 19px var(--font);padding:4px 0}
+.meta-action svg{width:31px;height:31px;stroke:#888;stroke-width:1.5;fill:none}
+.meta-action .folder-icon{fill:#888;stroke:#888}
+.note-tags{display:flex;align-items:center;gap:12px;margin:16px 5%;color:#b8b8b8;min-height:55px}
+.hash-mark{font:42px/1 Arial,sans-serif;font-weight:300}
+.note-tags select{appearance:none;border:0;background:transparent;color:#999;font:400 19px var(--font);outline:none;max-width:230px}
+.note-extra-tools{display:none;margin:20px 4.3% 40px}
+.note-extra-tools.open{display:block}
+.note-extra-tools .toolbar{align-items:center}
+.note-extra-tools .tool{font-family:Arial,sans-serif}
+.note-extra-tools input[type=color]{width:38px;height:34px;border:0;background:transparent}
+.note-save-status{font-size:16px;color:var(--muted);margin-top:8px}
+#deleteBtn{margin-left:auto;color:#b94a48}
+.note-page .draw-wrap{background:var(--card)}
+@media(max-width:560px){
+ .note-toolbar{height:70px;min-height:70px;padding:0 12px}.note-toolbar-right{gap:8px}.note-icon{width:42px}
+ .note-date-line{height:59px;font-size:21px;gap:26px;padding:0 6%}.note-date-line input{top:12px}
+ .note-title-input{height:46px;font-size:23px;margin:0 10px;padding:0 4px;width:calc(100% - 20px)}
+ .note-content{margin:0 10px;min-height:150px;font-size:22px;line-height:1.25;background:repeating-linear-gradient(to bottom,transparent 0,transparent 26px,#dedede 27px,#dedede 28px)}
+ .note-meta{height:47px;gap:22px;padding:0 12px}.meta-action{font-size:19px;gap:7px}.meta-action svg{width:31px;height:31px}
+ .note-tags{margin:16px 5%;gap:10px}.hash-mark{font-size:42px}.note-tags select{font-size:19px}
+}
+
+@media(max-width:560px){.topbar{height:70px;padding:0 13px}.top-actions{gap:2px}.entry{grid-template-columns:78px 1fr;padding:19px 14px;gap:9px;min-height:175px;margin-bottom:24px}.day{font-size:43px}.entry-title{font-size:24px}.entry-preview{font-size:22px}.cloud{font-size:23px}.fab{width:74px;height:74px;font-size:45px;right:20px;bottom:20px}.dialog{padding:16px}.settings-grid{grid-template-columns:1fr}main{padding:18px 12px 100px}}
+.note-paper{overflow:visible}
+</style>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .catch(error => console.error("Ошибка Service Worker:", error));
+    });
+  }
+</script>
+</head>
+<body class="font-caveat">
+<div id="lockScreen" class="overlay open" style="display:flex;z-index:30;background:var(--bg);color:var(--text)">
+ <section class="dialog confirm" style="margin:auto">
+  <h2 id="lockTitle">Serenity · Вход в дневник</h2>
+  <p id="lockMessage">Введите пароль, чтобы открыть локальные и облачные записи</p>
+  <form id="unlockForm">
+   <div class="field"><label for="masterPassword">Пароль</label><input id="masterPassword" type="password" autocomplete="current-password" required></div>
+   <p class="hint" id="lockError" role="alert"></p>
+   <button class="primary" id="unlockButton" type="submit">Войти</button>
+  </form>
+ </section>
+</div>
+<header class="topbar">
+ <button class="iconbtn" id="menuBtn" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+ <div class="top-actions">
+  <button class="iconbtn" id="searchBtn" aria-label="Поиск"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="7.2"/><path d="m16.2 16.2 5 5"/></svg></button>
+  <button class="iconbtn" id="lockBtn" aria-label="Заблокировать дневник" title="Заблокировать">♙</button><button class="iconbtn" id="settingsBtn" aria-label="Настройки"><svg viewBox="0 0 24 24"><path d="M12 2.5 14 3l.8 2.1 2 .9 2.1-.7 1.5 1.5-.7 2.1.9 2 .9.8v2.1l-2.1.8-.9 2 .7 2.1-1.5 1.5-2.1-.7-2 .9-.8 2.1h-2.1l-.8-2.1-2-.9-2.1.7-1.5-1.5.7-2.1-.9-2-2.1-.8v-2.1l2.1-.8.9-2-.7-2.1L7 5.3l2.1.7 2-.9.9-2.1z"/><circle cx="12" cy="12" r="3.2"/></svg></button>
+  <button class="iconbtn" id="moreBtn" aria-label="Дополнительно">⋮</button>
+ </div>
+</header>
+<div class="searchbar" id="searchBar"><input id="searchInput" type="search" placeholder="Поиск по записям…"></div>
+<div class="side-shade" id="sideShade"></div>
+<aside class="sidebar" id="sidebar">
+ <div class="dialog-head"><div class="side-title">Мой дневник</div><button class="close" id="sideClose">×</button></div>
+ <button class="side-item active" data-filter="all">Все записи</button>
+ <div class="side-caption">КАТЕГОРИИ</div>
+ <div id="tagFilters"></div>
+ <div class="side-caption">ДАННЫЕ</div>
+ <button class="side-item" id="sideSettings">Настройки и импорт</button>
+</aside>
+<main id="feed"></main>
+<button class="fab" id="addBtn" aria-label="Добавить запись">+</button>
+
+<div class="overlay note-screen" id="editorOverlay">
+ <section class="note-page">
+  <header class="note-toolbar">
+   <button class="note-icon" id="backNoteBtn" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+   <div class="note-toolbar-right">
+    <button class="note-icon" id="saveBtn" aria-label="Сохранить"><svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg></button>
+    <button class="note-icon" id="voiceBtn" aria-label="Голосовой ввод"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4m-4 0h8"/></svg></button>
+    <button class="note-icon" id="drawingToggle" aria-label="Рисунок"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="m4 17 5-6 4 4 3-3 4 5z"/></svg></button>
+    <button class="note-icon" id="noteMoreBtn" aria-label="Ещё">⋮</button>
+   </div>
+  </header>
+  <div class="note-date-line"><span id="noteDateLabel"></span><input id="noteDate" type="datetime-local" aria-label="Дата и время"></div>
+  <div class="note-paper">
+   <input id="noteTitle" class="note-title-input" maxlength="180" placeholder="Заголовок..." autocomplete="off">
+   <div id="noteContent" class="note-content" contenteditable="true" spellcheck="true" data-placeholder="Остальное..."></div>
+   <div class="note-meta">
+    <button class="meta-action" id="moodBtn" type="button"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14"/><circle cx="11" cy="12" r="1"/><circle cx="21" cy="12" r="1"/><path d="M9 19q7 8 14 0"/></svg><span id="moodLabel">Настроение</span></button>
+    <button class="meta-action" id="categoryBtn" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 32 32" class="folder-icon"><path d="M2 8a3 3 0 0 1 3-3h8l4 4h10a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3z"/></svg><span id="categoryLabel">Теги</span></button>
+   </div>
+   <div class="picker-popover tag-picker" id="tagPicker" hidden>
+    <div class="picker-heading">Теги записи</div>
+    <div class="picker-options" id="tagOptions"></div>
+    <div class="custom-tag-row"><input id="customTagInput" type="text" maxlength="32" placeholder="Новый тег"><button type="button" id="addCustomTagBtn">Добавить</button></div>
+   </div>
+   <div class="picker-popover mood-picker" id="moodPicker" hidden>
+    <div class="picker-heading">Какое у вас настроение?</div>
+    <div class="mood-options" id="moodOptions"></div>
+   </div>
+   <select id="noteTag" hidden aria-hidden="true"><option value="">Нет категории</option></select>
+  </div>
+  <div class="note-extra-tools" id="noteExtraTools">
+   <div class="toolbar">
+    <button class="tool" data-command="bold"><b>Ж</b></button><button class="tool" data-command="italic"><i>К</i></button>
+    <button class="tool" id="highlightBtn">🖍 Маркер</button><input type="color" id="highlightColor" value="#fff176" title="Цвет маркера">
+    <button class="tool" id="deleteBtn" hidden>Удалить запись</button>
+   </div>
+   <div class="draw-wrap">
+    <div class="draw-head"><strong>Рисунок</strong><span>Цвет</span><input type="color" id="penColor" value="#27343a"><button class="tool" id="eraserBtn">Ластик</button><button class="tool" id="clearCanvasBtn">Очистить</button><span class="hint" id="drawHint">Можно рисовать пальцем</span></div>
+    <canvas class="draw-canvas" id="drawCanvas" width="900" height="380"></canvas>
+   </div>
+   <div class="toolbar"><label class="tool">📷 Фото<input type="file" id="photoInput" accept="image/*" hidden></label><button class="tool" id="audioStart">🎙 Аудио · Старт</button><button class="tool" id="audioStop" disabled>Стоп</button><span id="audioTimer" class="hint">00:00</span></div><div id="mediaPreview"></div><div class="note-save-status" id="saveStatus">Автосохранение включено</div>
+  </div>
+ </section>
+</div>
+<div class="overlay" id="settingsOverlay">
+ <section class="dialog">
+  <div class="dialog-head"><h2>Настройки</h2><button class="close" data-close="settingsOverlay">×</button></div>
+  <div class="settings-grid">
+   <div class="field"><label for="themeSelect">Тема оформления</label><select id="themeSelect"><option value="light">Светлая Serenity</option><option value="dark">Темная</option><option value="sepia">Бумажная сепия</option></select></div>
+   <div class="field"><label for="fontSelect">Шрифт</label><select id="fontSelect"><option value="caveat">Caveat — рукописный</option><option value="inter">Inter</option><option value="lora">Lora</option></select></div>
+  </div>
+  <h3 style="margin:18px 0 6px">Безопасность и синхронизация</h3><div class="field"><button class="secondary" id="toggleDuressSettings" type="button">Задать/изменить ложный пароль</button><div id="duressSettingsPanel" hidden><label for="duressPassword">Новый ложный пароль</label><input id="duressPassword" type="password" minlength="8" placeholder="Задать пароль принуждения"><p class="hint">Открывает отдельный демонстрационный дневник. Отпечаток ложного пароля хранится только на этом устройстве.</p><button class="secondary" id="saveDuressBtn" type="button">Сохранить ложный пароль</button></div></div><div class="actions"><span class="hint" id="syncStatus" role="status">Синхронизация ещё не запущена</span><button class="secondary" id="syncNowBtn" type="button">Синхронизировать сейчас</button></div><p class="hint">Медиа загружаются в публичный бакет только в зашифрованном виде. Ссылки публичны, но содержимое защищено AES-GCM. Для строгой приватности настройте RLS на entries и ограничьте доступ к Storage.</p>
+  <div class="field"><label>Импорт старого дневника (CSV)</label><label class="primary import-label">Выбрать my_diary.csv<input type="file" id="csvFile" accept=".csv,text/csv" hidden></label><p class="hint">Поддерживаются заголовки колонок id_note, title, content, time, mood, category, creation_time и другие. Дата time читается как Unix timestamp в миллисекундах. Уже импортированные ID повторно не добавляются.</p></div>
+  <div class="actions"><button class="secondary" id="exportBtn">Экспортировать CSV</button><span class="status" id="importStatus"></span></div>
+ </section>
+</div>
+<div class="overlay" id="confirmOverlay">
+ <section class="dialog confirm"><div class="dialog-head"><h2>Удаление</h2><button class="close" data-close="confirmOverlay">×</button></div><p>Точно удалить эту запись?</p><div class="actions"><button class="danger" id="confirmDelete">Удалить</button><button class="secondary" data-close="confirmOverlay">Отмена</button></div></section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.min.js"></script>
+<script>
+(() => {
+'use strict';
+const TAGS=['работа','семья','идеи','путешествия','сны','рецепты','развлечения','план'];
+const NO_CATEGORY='Нет категории';
+const MOODS=[
+ {emoji:'😊',label:'Радость',value:'😊 Радость'},
+ {emoji:'😌',label:'Спокойствие',value:'😌 Спокойствие'},
+ {emoji:'😐',label:'Нейтрально',value:'😐 Нейтрально'},
+ {emoji:'😢',label:'Грусть',value:'😢 Грусть'},
+ {emoji:'😤',label:'Раздражение',value:'😤 Раздражение'},
+ {emoji:'😴',label:'Усталость',value:'😴 Усталость'},
+ {emoji:'🤩',label:'Вдохновение',value:'🤩 Вдохновение'}
+];
+const STORAGE='serenity-diary-notes-v1', SETTINGS='serenity-diary-settings-v1', DRAFT='serenity-diary-draft-v1';
+const $=id=>document.getElementById(id);
+const setHidden=(id,value)=>{const el=$(id);if(el)el.hidden=!!value;};
+let notes=[],activeFilter='all',editingId=null,canvasDirty=false,eraser=false,drawing=false,lastPoint=null,selectedMood=null,recordedMedia=[];
+const SB_URL='https://fqgpkuxsbfqjmwzhflxg.supabase.co', SB_KEY='sb_publishable_E_aXaqMINKyXRWzEawB79w_FBcJv6VN';
+let sb=null,cryptoKey=null,activeVault=null,isDecoy=false,syncBusy=false;const AUTH_META='serenity-auth-v1',DURESS_META='serenity-duress-v1',CACHE_META='serenity-encrypted-cache-v1';
+notes=[];
+const savedSettings=(()=>{try{return JSON.parse(localStorage.getItem(SETTINGS)||'{}')}catch{return {}}})();
+const hasSubtle=!!(window.crypto&&window.crypto.subtle);
+function randomBytes(n){if(!window.crypto?.getRandomValues)throw Error('Браузер не предоставляет криптографический генератор случайных чисел.');const a=new Uint8Array(n);window.crypto.getRandomValues(a);return a;}
+function bytesToWord(bytes){return CryptoJS.lib.WordArray.create(bytes);}
+function wordToBytes(word){const out=new Uint8Array(word.sigBytes);for(let i=0;i<word.sigBytes;i++)out[i]=(word.words[i>>>2] >>> (24-(i%4)*8))&255;return out;}
+function b64(buf){return btoa(String.fromCharCode(...new Uint8Array(buf)))}function unb64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
+function setSyncStatus(message,kind='info'){const el=$('syncStatus');if(el){el.textContent=message;el.style.color=kind==='error'?'#b94a48':kind==='ok'?'#4c8a57':'';}}
+async function hashText(text){if(!window.CryptoJS)throw Error('Не загрузилась библиотека CryptoJS. Для первого запуска нужен интернет.');return CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);}
+// Единый KDF на CryptoJS: результат не зависит от наличия Web Crypto и одинаков на разных устройствах.
+async function deriveVault(password){
+ if(!window.CryptoJS)throw Error('Не загрузилась библиотека CryptoJS. Проверьте интернет и обновите страницу.');
+ const saltText='Serenity-vault-v2:'+SB_URL;
+ const vaultSeed=CryptoJS.PBKDF2(password,CryptoJS.enc.Utf8.parse(saltText),{keySize:8,iterations:310000,hasher:CryptoJS.algo.SHA256});
+ const vault=CryptoJS.SHA256(vaultSeed.clone().concat(CryptoJS.enc.Utf8.parse('|vault-id|v2'))).toString(CryptoJS.enc.Hex);
+ const keySeed=CryptoJS.PBKDF2(password,CryptoJS.enc.Hex.parse(vault),{keySize:16,iterations:310000,hasher:CryptoJS.algo.SHA256});
+ const raw=wordToBytes(keySeed);
+ let gcmKey=null;if(hasSubtle){try{gcmKey=await crypto.subtle.importKey('raw',raw.slice(0,32),{name:'AES-GCM'},false,['encrypt','decrypt']);}catch{gcmKey=null;}}
+ return {vault,raw,gcmKey,encKey:CryptoJS.lib.WordArray.create(keySeed.words.slice(0,8),32),macKey:CryptoJS.lib.WordArray.create(keySeed.words.slice(8,16),32)};
+}
+async function encryptText(value){if(!cryptoKey)throw Error('Ключ шифрования не инициализирован');if(cryptoKey.gcmKey){const iv=randomBytes(12);const data=await crypto.subtle.encrypt({name:'AES-GCM',iv},cryptoKey.gcmKey,new TextEncoder().encode(value));return 'G2:'+b64(new Uint8Array([...iv,...new Uint8Array(data)]));}const iv=bytesToWord(randomBytes(16));const enc=CryptoJS.AES.encrypt(value,cryptoKey.encKey,{iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.Pkcs7});const body=iv.clone().concat(enc.ciphertext);const mac=CryptoJS.HmacSHA256(body,cryptoKey.macKey);return 'C2:'+CryptoJS.enc.Base64.stringify(body.concat(mac));}
+async function decryptText(value){
+ if(value.startsWith('G2:')){if(!cryptoKey?.gcmKey)throw Error('Для этой записи нужен браузер с поддержкой Web Crypto AES-GCM.');const all=unb64(value.slice(3));return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:all.slice(0,12)},cryptoKey.gcmKey,all.slice(12)));}
+ if(value.startsWith('C2:')||value.startsWith('C1:')){const all=CryptoJS.enc.Base64.parse(value.slice(3));const body=CryptoJS.lib.WordArray.create(all.words.slice(0,all.sigBytes/4-8),all.sigBytes-32);const mac=CryptoJS.lib.WordArray.create(all.words.slice(all.sigBytes/4-8),32);const expected=CryptoJS.HmacSHA256(body,cryptoKey.macKey);if(mac.toString()!==expected.toString())throw Error('Неверный пароль или повреждённые данные');const iv=CryptoJS.lib.WordArray.create(body.words.slice(0,4),16),cipher=CryptoJS.lib.WordArray.create(body.words.slice(4),body.sigBytes-16);const dec=CryptoJS.AES.decrypt({ciphertext:cipher},cryptoKey.encKey,{iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.Pkcs7});const out=dec.toString(CryptoJS.enc.Utf8);if(!out)throw Error('Неверный пароль или повреждённые данные');return out;}
+ // Старый формат AES-GCM предыдущей версии: пытаемся открыть старым локальным ключом, если он доступен.
+ if(!cryptoKey.gcmKey)throw Error('Старая запись требует Web Crypto AES-GCM; откройте её в актуальном браузере.');const legacy=unb64(value);return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:legacy.slice(0,12)},cryptoKey.gcmKey,legacy.slice(12)));
+}
+function cacheKey(){return 'serenity-encrypted-cache:'+activeVault;}
+async function persist(options={}){if(!cryptoKey||!activeVault)return false;try{const blob=await encryptText(JSON.stringify(notes));localStorage.setItem(cacheKey(),JSON.stringify({vault:activeVault,blob,updated:Date.now()}));localStorage.removeItem(STORAGE);}catch(e){console.error(e);setSyncStatus('Ошибка локального шифрования: '+e.message,'error');return false;}if(options.sync!==false)await syncCloud();return true;}
+let syncPromise=null;
+async function syncCloud(){if(syncPromise)return syncPromise;syncPromise=(async()=>{if(!sb){setSyncStatus('Ошибка: Supabase SDK не загрузился','error');return false;}if(!cryptoKey||!activeVault){setSyncStatus('Сначала войдите в дневник','error');return false;}if(!navigator.onLine){setSyncStatus('Офлайн: изменения сохранены в зашифрованном localStorage','error');return false;}setSyncStatus('Синхронизация с Supabase…');try{await persist({sync:false});const batchSize=100;for(let i=0;i<notes.length;i+=batchSize){const batch=[];for(const n of notes.slice(i,i+batchSize)){batch.push({id:String(n.id),vault_id:activeVault,encrypted_data:await encryptText(JSON.stringify(n)),updated_at:Date.now()});}const {error}=await sb.from('entries').upsert(batch,{onConflict:'id'});if(error)throw error;}setSyncStatus('Успешно синхронизировано: '+notes.length+' записей · '+new Date().toLocaleTimeString('ru-RU'),'ok');return true;}catch(e){console.error('Supabase sync failed:',e);setSyncStatus('Ошибка Supabase: '+(e.message||e.details||e.code||'неизвестная ошибка'),'error');return false;}finally{syncPromise=null;}})();return syncPromise;}
+async function loadVault(){notes=[];let cached=null;try{cached=JSON.parse(localStorage.getItem(cacheKey())||'null');}catch{}if(cached?.vault===activeVault){try{notes=JSON.parse(await decryptText(cached.blob))||[];}catch(e){console.warn('Локальный кэш не открыт:',e);}}
+ // Миграция кэша старой версии возможна только если его vault совпал с новым идентификатором.
+ if(!cached){try{const old=JSON.parse(localStorage.getItem(CACHE_META)||'null');if(old?.vault===activeVault){notes=JSON.parse(await decryptText(old.blob))||[];}}catch(e){console.warn('Старый кэш не удалось мигрировать:',e);}}
+ if(sb&&navigator.onLine){setSyncStatus('Загружаем записи из Supabase…');const {data,error}=await sb.from('entries').select('id,encrypted_data,updated_at').eq('vault_id',activeVault);if(error){setSyncStatus('Ошибка загрузки Supabase: '+(error.message||error.details||error.code),'error');}else if(data){const map=new Map(notes.map(n=>[String(n.id),n]));let failed=0;for(const row of data){try{const n=JSON.parse(await decryptText(row.encrypted_data));const old=map.get(String(n.id));if(!old||new Date(n.updated||0).getTime()>=new Date(old.updated||0).getTime())map.set(String(n.id),n);}catch(e){failed++;console.warn('Не удалось расшифровать строку',row.id,e);}}notes=[...map.values()];await persist({sync:false});setSyncStatus(`Загружено из облака: ${data.length-failed} записей${failed?`; не открыто: ${failed}`:''}`,'ok');}}
+ renderFilters();renderFeed();}
+async function uploadEncryptedFile(file){if(!cryptoKey?.gcmKey)throw Error('Загрузка медиа требует Web Crypto AES-GCM; запустите приложение через HTTPS/localhost.');const id=crypto.randomUUID();const bytes=await file.arrayBuffer();const iv=crypto.getRandomValues(new Uint8Array(12));const encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},cryptoKey.gcmKey,bytes);const payload=new Blob([iv,encrypted],{type:'application/octet-stream'});const path=activeVault+'/'+id+'.bin';const {error}=await sb.storage.from('media').upload(path,payload,{contentType:'application/octet-stream',upsert:false});if(error)throw error;const {data}=sb.storage.from('media').getPublicUrl(path);return {url:data.publicUrl,iv:b64(iv),name:file.name,type:file.type};}
+async function unlock(password){
+ if(!window.CryptoJS)throw Error('CryptoJS не загружен: проверьте подключение к интернету.');
+ const fp=await hashText('Serenity-auth-v2:'+password);const duress=localStorage.getItem(DURESS_META);isDecoy=!!duress&&duress===fp;
+ const candidate=await deriveVault(password);cryptoKey=candidate;activeVault=candidate.vault;
+ if(isDecoy){const demoKey='serenity-decoy-created:'+activeVault;if(!localStorage.getItem(demoKey)){notes=[{id:crypto.randomUUID(),title:'Тихое утро',content:'Сегодня хорошая погода для прогулки.',date:new Date().toISOString(),tag:'идеи',mood:'😌 Спокойствие',drawing:'',updated:new Date().toISOString()},{id:crypto.randomUUID(),title:'Рецепт блинов',content:'Молоко, мука, яйца и немного хорошего настроения.',date:new Date(Date.now()-86400000).toISOString(),tag:'рецепты',mood:'😊 Радость',drawing:'',updated:new Date().toISOString()}];localStorage.setItem(demoKey,'1');await persist();}else await loadVault();}
+ else await loadVault();
+ const lock=$('lockScreen');if(lock)lock.style.display='none';if(isDecoy)setSyncStatus('Демо-режим активен');else if(!navigator.onLine)setSyncStatus('Офлайн · локальный режим','error');else if(!sb)setSyncStatus('Supabase SDK недоступен','error');
+}
+function lockApp(){cryptoKey=null;activeVault=null;notes=[];isDecoy=false;const lock=$('lockScreen');if(lock)lock.style.display='flex';if($('masterPassword'))$('masterPassword').value='';if($('lockTitle'))$('lockTitle').textContent='Serenity · Вход в дневник';if($('lockMessage'))$('lockMessage').textContent='Введите пароль, чтобы открыть локальные и облачные записи';if($('unlockButton'))$('unlockButton').textContent='Войти';}
+
+
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function dateValue(d){const x=new Date(d);return new Date(x.getTime()-x.getTimezoneOffset()*60000).toISOString().slice(0,16)}
+function dateLabel(d){return new Intl.DateTimeFormat('ru-RU',{month:'long',year:'numeric'}).format(new Date(d))}
+function dayParts(d){const x=new Date(d);return {weekday:new Intl.DateTimeFormat('ru-RU',{weekday:'short'}).format(x).replace('.',''),day:String(x.getDate()).padStart(2,'0')}}
+function plain(html){const el=document.createElement('div');el.innerHTML=html;return el.innerText||el.textContent||''}
+function safeDate(d){const x=new Date(d);return isNaN(x)?new Date().toISOString():x.toISOString()}
+function applySettings(){document.body.classList.remove('theme-dark','theme-sepia','font-inter','font-lora','font-caveat');if(savedSettings.theme==='dark')document.body.classList.add('theme-dark');if(savedSettings.theme==='sepia')document.body.classList.add('theme-sepia');document.body.classList.add('font-'+(savedSettings.font||'caveat'));$('themeSelect').value=savedSettings.theme||'light';$('fontSelect').value=savedSettings.font||'caveat'}
+function allTags(){return [...new Set([...TAGS,...notes.map(n=>n.tag).filter(t=>t&&t!==NO_CATEGORY),NO_CATEGORY])]}
+function renderFilters(){ $('tagFilters').innerHTML=allTags().map(t=>`<button class="side-item ${activeFilter===t?'active':''}" data-filter="${esc(t)}">${esc(t[0].toUpperCase()+t.slice(1))}</button>`).join('');document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{activeFilter=b.dataset.filter;renderFilters();renderFeed();closeSide()}));}
+function moodInfo(value){
+ if(value===null||value===undefined||String(value).trim()==='')return null;
+ const raw=String(value).trim();
+ const exact=MOODS.find(m=>m.value===raw||m.label.toLowerCase()===raw.toLowerCase()||m.emoji===raw);
+ if(exact)return exact;
+ const numeric=Number(raw);
+ if(Number.isInteger(numeric)&&numeric>=1&&numeric<=MOODS.length)return MOODS[numeric-1];
+ const emoji=raw.match(/[😊😌😐😢😤😴🤩]/u)?.[0];
+ return emoji?{emoji,label:raw.replace(emoji,'').trim()||'Настроение'}:{emoji:'🙂',label:raw};
+}
+function refreshPickerOptions(){
+ const current=$('noteTag').value||NO_CATEGORY;
+ $('tagOptions').innerHTML=allTags().map(t=>`<button type="button" class="picker-choice ${t===current?'selected':''}" data-tag-choice="${esc(t)}">${esc(t)}</button>`).join('');
+ $('tagOptions').querySelectorAll('[data-tag-choice]').forEach(b=>b.onclick=()=>selectTag(b.dataset.tagChoice));
+ $('moodOptions').innerHTML=MOODS.map(m=>`<button type="button" class="mood-choice ${selectedMood===m.value?'selected':''}" data-mood-choice="${esc(m.value)}"><span class="emoji">${m.emoji}</span><span>${m.label}</span></button>`).join('')+`<button type="button" class="mood-choice" data-mood-choice=""><span class="emoji">✕</span><span>Без настроения</span></button>`;
+ $('moodOptions').querySelectorAll('[data-mood-choice]').forEach(b=>b.onclick=()=>selectMood(b.dataset.moodChoice));
+}
+function setTagValue(tag){
+ const value=tag&&tag!==NO_CATEGORY?tag:'';
+ if(value&&!Array.from($('noteTag').options).some(o=>o.value===value))$('noteTag').add(new Option(value,value));
+ $('noteTag').value=value;
+}
+function selectTag(tag){
+ setTagValue(tag===NO_CATEGORY?'':tag);
+ $('categoryLabel').textContent=tag===NO_CATEGORY?'Теги':tag;
+ setHidden('tagPicker',true);$('categoryBtn').setAttribute('aria-expanded','false');
+ refreshPickerOptions();scheduleDraft();
+}
+function selectMood(value){
+ selectedMood=value||null;
+ const info=moodInfo(selectedMood);
+ $('moodLabel').textContent=info?`${info.emoji} ${info.label}`:'Настроение';
+ setHidden('moodPicker',true);$('moodBtn').setAttribute('aria-expanded','false');
+ refreshPickerOptions();scheduleDraft();
+}
+function renderFeed(){
+ const q=$('searchInput').value.trim().toLocaleLowerCase('ru');
+ const filtered=notes.filter(n=>(activeFilter==='all'||(activeFilter===NO_CATEGORY?(!n.tag||n.tag===NO_CATEGORY):n.tag===activeFilter))&&(!q||(n.title+' '+plain(n.content||'')).toLocaleLowerCase('ru').includes(q)));
+ filtered.sort((a,b)=>new Date(b.date)-new Date(a.date));
+ if(!filtered.length){$('feed').innerHTML=`<div class="empty">${q||activeFilter!=='all'?'Ничего не найдено':'Здесь пока пусто.<br>Нажмите +, чтобы создать первую запись.'}</div>`;return}
+ let out='',last='';
+ for(const n of filtered){const month=dateLabel(n.date);if(month!==last){out+=`<h2 class="month-title">${esc(month[0].toUpperCase()+month.slice(1))}</h2>`;last=month}
+ const p=dayParts(n.date);
+ const mood=moodInfo(n.mood);out+=`<article class="entry" data-id="${esc(n.id)}"><div class="entry-date"><span class="weekday">${esc(p.weekday)}</span><span class="day">${p.day}</span><span class="cloud" aria-label="Сохранено локально или синхронизируется">☁</span></div><div class="entry-body"><h3 class="entry-title">${esc(n.title||'Без названия')}${mood?` <span class="entry-mood" title="${esc(mood.label)}">${mood.emoji}</span>`:''}</h3><div class="entry-preview">${esc(plain(n.content||''))}</div>${`<div class="entry-tag">${esc(n.tag||NO_CATEGORY)}</div>`}${n.drawing?'<div class="entry-tag">✎ Есть рисунок</div>':''}</div></article>`;
+ }
+ $('feed').innerHTML=out;$('feed').querySelectorAll('.entry').forEach(card=>card.addEventListener('click',()=>openEditor(card.dataset.id)));
+}
+function openOverlay(id){$(id).classList.add('open')}
+function closeOverlay(id){$(id).classList.remove('open')}
+function closeSide(){$('sidebar').classList.remove('open');$('sideShade').classList.remove('open')}
+function clearCanvas(){const c=$('drawCanvas'),ctx=c.getContext('2d');ctx.clearRect(0,0,c.width,c.height);ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);canvasDirty=true}
+function loadCanvas(data){clearCanvas();canvasDirty=false;if(data){const img=new Image();img.onload=()=>{const c=$('drawCanvas'),ctx=c.getContext('2d');ctx.drawImage(img,0,0,c.width,c.height);canvasDirty=false};img.src=data}}
+function canvasData(){return $('drawCanvas').toDataURL('image/png')}
+function getDraft(){try{return JSON.parse(localStorage.getItem(DRAFT)||'null')}catch{return null}}
+function setDraft(){const d={id:editingId,title:$('noteTitle').value,date:$('noteDate').value,tag:$('noteTag').value,mood:selectedMood,content:$('noteContent').innerHTML,drawing:canvasData(),updated:Date.now()};try{localStorage.setItem(DRAFT,JSON.stringify(d));$('saveStatus').textContent='Черновик сохранён'}catch{$('saveStatus').textContent='Не удалось сохранить черновик (мало места)'}}
+let draftTimer;
+function scheduleDraft(){clearTimeout(draftTimer);$('saveStatus').textContent='Сохранение…';draftTimer=setTimeout(setDraft,350)}
+function openEditor(id=null){
+ editingId=id;const n=notes.find(x=>x.id===id);setHidden('deleteBtn',!n);
+ recordedMedia=n?.media||[];renderMedia();$('noteTitle').value=n?.title||'';$('noteDate').value=dateValue(n?.date||new Date());setTagValue(n?.tag||'');selectedMood=n?.mood??null;$('noteContent').innerHTML=n?.content||'';
+ loadCanvas(n?.drawing||'');refreshPickerOptions();setHidden('tagPicker',true);setHidden('moodPicker',true);$('noteExtraTools').classList.remove('open');$('moodLabel').textContent=moodInfo(selectedMood)?`${moodInfo(selectedMood).emoji} ${moodInfo(selectedMood).label}`:'Настроение';$('categoryLabel').textContent=n?.tag&&n.tag!==NO_CATEGORY?n.tag:'Теги';const nd=new Date(n?.date||Date.now());$('noteDateLabel').textContent=new Intl.DateTimeFormat('ru-RU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(nd)+' · '+new Intl.DateTimeFormat('ru-RU',{hour:'2-digit',minute:'2-digit'}).format(nd);
+ const draft=getDraft();if(draft&&draft.id===id&&draft.updated>Date.parse(n?.updated||0)){if(confirm('Найден несохранённый черновик. Восстановить его?')){$('noteTitle').value=draft.title||'';$('noteDate').value=draft.date||dateValue(new Date());setTagValue(draft.tag||'');$('noteContent').innerHTML=draft.content||'';selectedMood=draft.mood??selectedMood;$('moodLabel').textContent=moodInfo(selectedMood)?`${moodInfo(selectedMood).emoji} ${moodInfo(selectedMood).label}`:'Настроение';loadCanvas(draft.drawing||'')}}
+ $('saveStatus').textContent='Автосохранение включено';openOverlay('editorOverlay');setTimeout(()=>$('noteTitle').focus(),80);
+}
+function saveNote(){
+ const title=$('noteTitle').value.trim(),date=$('noteDate').value;
+ if(!date){alert('Укажите дату записи.');return}
+ const old=notes.find(n=>n.id===editingId);
+ const item={id:editingId||crypto.randomUUID?.()||String(Date.now()),media:recordedMedia,title,content:$('noteContent').innerHTML,date:new Date(date).toISOString(),tag:$('noteTag').value||NO_CATEGORY,drawing:canvasData(),updated:new Date().toISOString(),mood:selectedMood};
+ if(old)notes=notes.map(n=>n.id===editingId?item:n);else notes.push(item);
+ persist();localStorage.removeItem(DRAFT);closeOverlay('editorOverlay');renderFilters();renderFeed();
+}
+function askDelete(){if(!editingId)return;openOverlay('confirmOverlay')}
+function deleteNote(){notes=notes.filter(n=>n.id!==editingId);persist();localStorage.removeItem(DRAFT);closeOverlay('confirmOverlay');closeOverlay('editorOverlay');renderFilters();renderFeed()}
+function initCSVTags(){ $('noteTag').innerHTML='<option value="">Выберите теги</option>'+TAGS.map(t=>`<option value="${t}">${t}</option>`).join('')}
+function parseCSV(text){
+ const rows=[];let row=[],field='',quoted=false;
+ for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){field+='"';i++}else if(c==='"')quoted=false;else field+=c}else{if(c==='"')quoted=true;else if(c===','){row.push(field);field=''}else if(c==='\n'){row.push(field);rows.push(row);row=[];field=''}else if(c!=='\r')field+=c}}
+ row.push(field);if(row.some(x=>x!==''))rows.push(row);return rows;
+}
+async function importCSV(file){
+ const reader=new FileReader();reader.onload=async()=>{
+  try{const rows=parseCSV(String(reader.result||''));if(rows.length<2)throw Error('Файл пуст или не содержит записей');const heads=rows[0].map(x=>x.trim().toLowerCase());const ix=k=>heads.indexOf(k);
+  if(ix('title')<0||ix('content')<0||ix('time')<0)throw Error('Не найдены обязательные колонки title, content, time');
+  const known=new Set(notes.map(n=>n.id));let added=0;
+  for(const r of rows.slice(1)){if(!r.some(v=>v.trim()))continue;const get=k=>r[ix(k)]??'';const id=get('id_note')||crypto.randomUUID?.()||String(Date.now()+added);if(known.has(id))continue;const ms=Number(get('time'));const dt=Number.isFinite(ms)&&ms>0?new Date(ms):new Date();if(isNaN(dt))continue;
+   const rawTag=get('category').trim();const lowTag=rawTag.toLowerCase();const tag=!rawTag?NO_CATEGORY:(TAGS.find(t=>t.toLowerCase()===lowTag)||(/работ|work/.test(lowTag)?'работа':/сем|family/.test(lowTag)?'семья':rawTag));
+   notes.push({id,title:get('title'),content:get('content').replace(/\r\n/g,'\n').replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])).replace(/\n/g,'<br>'),date:dt.toISOString(),tag,drawing:'',updated:new Date().toISOString(),mood:get('mood')});
+   known.add(id);added++;
+  }await persist({sync:false});renderFilters();renderFeed();$('importStatus').textContent=`Импортировано записей: ${added}`;const synced=await syncCloud();if(synced)alert(`Импортировано ${added} записей и отправлено в Supabase.`);else alert(`Импортировано ${added} записей локально. Облачная отправка не удалась: ${$('syncStatus').textContent}`);
+  }catch(e){alert('Ошибка импорта: '+e.message)}$('csvFile').value='';
+ };reader.onerror=()=>alert('Не удалось прочитать файл');reader.readAsText(file,'UTF-8');
+}
+function exportCSV(){const headers=['id_note','title','content','time','category','mood'];const lines=[headers.join(',')];for(const n of notes){const vals=[n.id,n.title,plain(n.content),new Date(n.date).getTime(),n.tag,n.mood||''];lines.push(vals.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(','))}const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my_diary_export.csv';a.click();URL.revokeObjectURL(a.href)}
+// Supabase, вход и защита
+sb=window.supabase?.createClient(SB_URL,SB_KEY,{auth:{persistSession:false,autoRefreshToken:false}})||null;
+$('unlockForm').addEventListener('submit',async e=>{e.preventDefault();const pass=$('masterPassword').value;if(!pass){$('lockError').textContent='Введите пароль';return}try{$('unlockButton').disabled=true;$('lockError').textContent='';await unlock(pass);$('masterPassword').value='';}catch(err){$('lockError').textContent=err.message||'Не удалось открыть дневник';}finally{$('unlockButton').disabled=false;}});
+$('lockBtn').onclick=lockApp;
+$('toggleDuressSettings').onclick=()=>{const panel=$('duressSettingsPanel');if(panel)panel.hidden=!panel.hidden;};
+$('saveDuressBtn').onclick=async()=>{const p=$('duressPassword').value;if(p.length<8){alert('Ложный пароль должен содержать не менее 8 символов');return}const fp=await hashText('Serenity-auth-v2:'+p);const current=activeVault;if(current&& (await deriveVault(p)).vault===current){alert('Ложный пароль должен отличаться от текущего пароля');return}localStorage.setItem(DURESS_META,fp);$('duressPassword').value='';$('duressSettingsPanel').hidden=true;alert('Ложный пароль сохранён на этом устройстве.');};
+$('syncNowBtn').onclick=async()=>{const ok=await syncCloud();if(!ok)alert($('syncStatus').textContent);};
+window.addEventListener('online',()=>{if(cryptoKey)syncCloud();});window.addEventListener('offline',()=>setSyncStatus('Офлайн · изменения сохранены локально','error'));
+let mediaRecorder=null,audioChunks=[],audioStarted=0,audioInterval=null;
+async function renderMedia(){const box=$('mediaPreview');box.innerHTML='';for(const m of recordedMedia){try{const response=await fetch(m.url);if(!response.ok)throw Error('download failed');const bytes=new Uint8Array(await response.arrayBuffer());const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(m.iv)},cryptoKey,bytes);const url=URL.createObjectURL(new Blob([plain],{type:m.type||'application/octet-stream'}));if(m.type?.startsWith('audio/')){const a=document.createElement('audio');a.controls=true;a.src=url;box.append(a);}else{const img=document.createElement('img');img.src=url;img.alt=m.name||'Фото';img.style.cssText='max-width:180px;max-height:150px;border-radius:8px;margin:5px';box.append(img);}}catch(e){const t=document.createElement('span');t.className='hint';t.textContent='Вложение недоступно офлайн';box.append(t);}}}
+$('photoInput').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{if(!cryptoKey)throw Error('Сначала войдите в дневник');const img=await createImageBitmap(f);const scale=Math.min(1,1200/img.width),c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext('2d').drawImage(img,0,0,c.width,c.height);const blob=await new Promise(r=>c.toBlob(r,'image/jpeg',.82));const file=new File([blob],(f.name.replace(/\.[^.]+$/,'')||'photo')+'.jpg',{type:'image/jpeg'});recordedMedia.push(await uploadEncryptedFile(file));renderMedia();scheduleDraft();}catch(err){alert('Не удалось прикрепить фото: '+err.message)}e.target.value='';});
+$('audioStart').onclick=async()=>{try{if(!cryptoKey)throw Error('Сначала войдите');const stream=await navigator.mediaDevices.getUserMedia({audio:true});audioChunks=[];mediaRecorder=new MediaRecorder(stream);mediaRecorder.ondataavailable=e=>{if(e.data.size)audioChunks.push(e.data)};mediaRecorder.onstop=async()=>{stream.getTracks().forEach(t=>t.stop());clearInterval(audioInterval);$('audioTimer').textContent='00:00';try{const blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||'audio/webm'});const f=new File([blob],'voice-'+Date.now()+'.webm',{type:blob.type});recordedMedia.push(await uploadEncryptedFile(f));renderMedia();scheduleDraft();}catch(err){alert('Ошибка сохранения аудио: '+err.message)}};mediaRecorder.start();audioStarted=Date.now();$('audioStart').disabled=true;$('audioStop').disabled=false;audioInterval=setInterval(()=>{$('audioTimer').textContent=new Date(Date.now()-audioStarted).toISOString().slice(14,19)},500);}catch(err){alert('Микрофон недоступен: '+err.message)}};
+$('audioStop').onclick=()=>{if(mediaRecorder?.state==='recording'){mediaRecorder.stop();$('audioStart').disabled=false;$('audioStop').disabled=true;}};
+
+// UI events
+$('menuBtn').onclick=()=>{$('sidebar').classList.add('open');$('sideShade').classList.add('open')};$('sideClose').onclick=closeSide;$('sideShade').onclick=closeSide;
+$('searchBtn').onclick=()=>{$('searchBar').classList.toggle('open');if($('searchBar').classList.contains('open'))$('searchInput').focus();else $('searchInput').value='';renderFeed()};
+$('searchInput').addEventListener('input',renderFeed);$('settingsBtn').onclick=() =>openOverlay('settingsOverlay');$('sideSettings').onclick=()=>{closeSide();openOverlay('settingsOverlay')};
+$('moreBtn').onclick=()=>{openOverlay('settingsOverlay')};$('addBtn').onclick=()=>openEditor();$('saveBtn').onclick=saveNote;$('deleteBtn').onclick=askDelete;$('confirmDelete').onclick=deleteNote;
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeOverlay(b.dataset.close)));
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeOverlay(o.id)}));
+['noteTitle','noteDate','noteTag','noteContent'].forEach(id=>$(id).addEventListener(id==='noteContent'?'input':'input',scheduleDraft));
+$('noteTag').addEventListener('change',()=>{scheduleDraft()});
+$('noteDate').addEventListener('change',()=>{const d=new Date($('noteDate').value);if(!isNaN(d))$('noteDateLabel').textContent=new Intl.DateTimeFormat('ru-RU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(d)+' · '+new Intl.DateTimeFormat('ru-RU',{hour:'2-digit',minute:'2-digit'}).format(d)});
+$('backNoteBtn').onclick=()=>{setDraft();closeOverlay('editorOverlay')};
+$('noteMoreBtn').onclick=()=>{$('noteExtraTools').classList.toggle('open')};
+$('drawingToggle').onclick=()=>{$('noteExtraTools').classList.add('open');$('drawCanvas').scrollIntoView({behavior:'smooth',block:'center'})};
+$('categoryBtn').onclick=()=>{const p=$('tagPicker');setHidden('moodPicker',true);p.hidden=!p.hidden;$('categoryBtn').setAttribute('aria-expanded',String(!p.hidden));$('moodBtn').setAttribute('aria-expanded','false');refreshPickerOptions();if(!p.hidden)$('customTagInput').focus()};
+$('moodBtn').onclick=()=>{const p=$('moodPicker');setHidden('tagPicker',true);p.hidden=!p.hidden;$('moodBtn').setAttribute('aria-expanded',String(!p.hidden));$('categoryBtn').setAttribute('aria-expanded','false');refreshPickerOptions()};
+$('addCustomTagBtn').onclick=()=>{const value=$('customTagInput').value.trim().replace(/^#/,'');if(!value)return;const tag=value.slice(0,32);selectTag(tag);$('customTagInput').value='';renderFilters()};
+$('customTagInput').addEventListener('keydown',e=>{if(e.key==='Enter'){$('addCustomTagBtn').click();e.preventDefault()}});
+document.addEventListener('click',e=>{if(!e.target.closest('#tagPicker')&&!e.target.closest('#categoryBtn')){setHidden('tagPicker',true);$('categoryBtn').setAttribute('aria-expanded','false')}if(!e.target.closest('#moodPicker')&&!e.target.closest('#moodBtn')){setHidden('moodPicker',true);$('moodBtn').setAttribute('aria-expanded','false')}});
+
+$('voiceBtn').onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert('Голосовой ввод не поддерживается этим браузером.');return}const rec=new SR();rec.lang='ru-RU';rec.onresult=e=>{const t=e.results[0][0].transcript;$('noteContent').focus();document.execCommand('insertText',false,t);scheduleDraft()};rec.start()};
+
+document.querySelectorAll('[data-command]').forEach(b=>b.onclick=()=>{document.execCommand(b.dataset.command,false,null);$('noteContent').focus();scheduleDraft()});
+$('highlightBtn').onclick=()=>{document.execCommand('hiliteColor',false,$('highlightColor').value);$('noteContent').focus();scheduleDraft()};
+$('themeSelect').onchange=e=>{savedSettings.theme=e.target.value;localStorage.setItem(SETTINGS,JSON.stringify(savedSettings));applySettings()};
+$('fontSelect').onchange=e=>{savedSettings.font=e.target.value;localStorage.setItem(SETTINGS,JSON.stringify(savedSettings));applySettings()};
+$('csvFile').onchange=e=>{if(e.target.files[0])importCSV(e.target.files[0])};$('exportBtn').onclick=exportCSV;
+$('eraserBtn').onclick=()=>{eraser=!eraser;$('eraserBtn').textContent=eraser?'Ластик включён':'Ластик';};
+$('clearCanvasBtn').onclick=clearCanvas;
+const canvas=$('drawCanvas'),ctx=canvas.getContext('2d');ctx.lineCap='round';ctx.lineJoin='round';
+function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height}}
+canvas.addEventListener('pointerdown',e=>{drawing=true;lastPoint=point(e);canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=point(e);ctx.beginPath();ctx.moveTo(lastPoint.x,lastPoint.y);ctx.lineTo(p.x,p.y);ctx.strokeStyle=eraser?'#ffffff':$('penColor').value;ctx.lineWidth=eraser?34:7;ctx.stroke();lastPoint=p;canvasDirty=true});
+canvas.addEventListener('pointerup',()=>{drawing=false;lastPoint=null;scheduleDraft()});canvas.addEventListener('pointercancel',()=>drawing=false);
+initCSVTags();applySettings();lockApp();
+// Manifest data URI: convenient metadata; a service worker must be hosted as a separate file for full offline PWA installation.
+const manifest={name:'Мой дневник',short_name:'Дневник',start_url:'.',display:'standalone',background_color:'#f2f4f5',theme_color:'#2c3e46',lang:'ru'};
+$('manifestLink').href='data:application/manifest+json;charset=utf-8,'+encodeURIComponent(JSON.stringify(manifest));
+})();
+</script>
+</body>
+</html>
