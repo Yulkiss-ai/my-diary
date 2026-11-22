@@ -16,7 +16,7 @@
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font);font-size:21px}button,input,select,textarea{font:inherit}button{cursor:pointer}
 body{transition:background .2s,color .2s}.topbar{height:82px;background:var(--panel);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc((100vw - 900px)/2));box-shadow:0 2px 6px #0002;position:sticky;top:0;z-index:5}
 .iconbtn{border:0;background:transparent;color:inherit;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;font-family:Arial,sans-serif;font-size:31px}.iconbtn:hover{background:#ffffff18}.top-actions{display:flex;gap:14px}.topbar svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-main{max-width:850px;margin:auto;padding:22px 18px 110px}.month-title{text-align:center;color:var(--muted);font-size:30px;margin:0 0 28px;font-weight:500}.entry{background:var(--card);border-radius:19px;box-shadow:var(--shadow);min-height:190px;margin:0 0 34px;padding:24px 28px;display:grid;grid-template-columns:125px 1fr;gap:16px;cursor:pointer;transition:transform .15s,box-shadow .15s}.entry:hover{transform:translateY(-2px);box-shadow:0 11px 24px #00000025}.entry-date{text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:0}.weekday{font-size:24px;line-height:1.2}.day{font-size:50px;line-height:1.12}.cloud{margin-top:auto;font:28px Arial,sans-serif;color:var(--muted);height:42px;display:grid;place-items:center}.entry-body{min-width:0;padding-top:2px}.entry-title{font-size:27px;font-weight:700;margin:0 0 12px;line-height:1.2;overflow-wrap:anywhere}.entry-preview{font-size:25px;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere;max-height:4.1em;overflow:hidden}.entry-mood{display:inline-block;font-size:.72em;vertical-align:middle;margin-left:5px}.entry-tag{font-size:16px;color:var(--muted);margin-top:10px}.empty{text-align:center;color:var(--muted);padding:65px 15px;font-size:25px}.fab{position:fixed;right:max(24px,calc((100vw - 850px)/2));bottom:28px;width:92px;height:92px;border-radius:50%;border:0;background:var(--accent);color:white;font:54px Arial,sans-serif;box-shadow:0 5px 12px #0003;z-index:4}.fab:hover{filter:brightness(1.05);transform:scale(1.03)}
+main{max-width:850px;margin:auto;padding:22px 18px 110px}.month-title{text-align:center;color:var(--muted);font-size:30px;margin:0 0 28px;font-weight:500}.entry{background:var(--card);border-radius:19px;box-shadow:var(--shadow);min-height:190px;margin:0 0 34px;padding:24px 28px;display:grid;grid-template-columns:125px 1fr;gap:16px;cursor:pointer;transition:transform .15s,box-shadow .15s}.entry:hover{transform:translateY(-2px);box-shadow:0 11px 24px #00000025}.entry-date{text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:0}.weekday{font-size:24px;line-height:1.2}.day{font-size:50px;line-height:1.12}.cloud{margin-top:auto;height:42px;display:grid;place-items:center}.cloud svg{width:30px;height:30px;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.cloud.pending{color:#929698}.cloud.pending svg{fill:none;stroke:currentColor}.cloud.synced{color:#87952d}.cloud.synced svg{fill:currentColor;stroke:currentColor}.entry-body{min-width:0;padding-top:2px}.entry-title{font-size:27px;font-weight:700;margin:0 0 12px;line-height:1.2;overflow-wrap:anywhere}.entry-preview{font-size:25px;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere;max-height:4.1em;overflow:hidden}.entry-mood{display:inline-block;font-size:.72em;vertical-align:middle;margin-left:5px}.entry-tag{font-size:16px;color:var(--muted);margin-top:10px}.empty{text-align:center;color:var(--muted);padding:65px 15px;font-size:25px}.fab{position:fixed;right:max(24px,calc((100vw - 850px)/2));bottom:28px;width:92px;height:92px;border-radius:50%;border:0;background:var(--accent);color:white;font:54px Arial,sans-serif;box-shadow:0 5px 12px #0003;z-index:4}.fab:hover{filter:brightness(1.05);transform:scale(1.03)}
 .overlay{position:fixed;inset:0;background:#0007;z-index:10;display:none;align-items:center;justify-content:center;padding:14px}.overlay.open{display:flex}.dialog{background:var(--card);color:var(--text);width:min(720px,100%);max-height:94vh;overflow:auto;border-radius:20px;padding:22px;box-shadow:0 20px 60px #0004}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.dialog h2{font-size:29px;margin:0}.close{border:0;background:transparent;font:28px Arial;color:var(--muted)}.field{display:block;margin:12px 0}.field label{display:block;color:var(--muted);font-size:18px;margin:0 0 4px}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);padding:10px 12px;outline:none;font-size:20px}.field textarea{min-height:90px;resize:vertical}.toolbar{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}.tool{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:8px;padding:6px 11px;font-size:17px}.editor{min-height:180px;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg);outline:none;line-height:1.35;overflow-wrap:anywhere}.editor:empty:before{content:'Начните писать…';color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:16px}.primary,.secondary,.danger{border:0;border-radius:10px;padding:10px 17px}.primary{background:var(--accent);color:#fff}.secondary{background:var(--line);color:var(--text)}.danger{background:#b94a48;color:white;margin-left:auto}.status{font-size:15px;color:var(--muted);margin-left:auto}.draw-wrap{border:1px solid var(--line);border-radius:12px;padding:9px;margin-top:12px}.draw-head{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px;font-size:17px}.draw-head input{width:42px;height:32px;border:0;background:transparent}.draw-canvas{width:100%;height:190px;display:block;background:#fff;border:1px dashed #bbb;border-radius:8px;touch-action:none}.sidebar{position:fixed;inset:0 auto 0 0;width:min(310px,85vw);background:var(--card);color:var(--text);z-index:12;box-shadow:8px 0 28px #0002;transform:translateX(-110%);transition:transform .2s;padding:24px;overflow:auto}.sidebar.open{transform:translateX(0)}.side-shade{position:fixed;inset:0;background:#0006;z-index:11;display:none}.side-shade.open{display:block}.side-title{font-size:29px;font-weight:bold;margin:5px 0 22px}.side-item{display:block;width:100%;text-align:left;padding:9px 12px;border:0;background:transparent;color:inherit;border-radius:9px;font-size:21px}.side-item.active,.side-item:hover{background:var(--bg)}.side-caption{color:var(--muted);font-size:16px;margin:20px 0 5px}.searchbar{display:none;max-width:850px;margin:12px auto 0;padding:0 18px}.searchbar.open{display:block}.searchbar input{width:100%;padding:11px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:20px}
 .settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.settings-grid .field{margin:5px 0}.import-label{display:inline-block;cursor:pointer}.hint{font-size:16px;color:var(--muted);line-height:1.35}.confirm{max-width:390px}.confirm p{font-size:22px}
 body.theme-dark{--bg:#192328;--panel:#101a1f;--card:#26343a;--text:#edf1f2;--muted:#aab4b8;--line:#405158;--accent:#a5b13b;--shadow:0 8px 20px #0005}
@@ -80,6 +80,17 @@ body.font-inter{--font:'Inter',sans-serif}body.font-lora{--font:'Lora',serif}bod
 
 @media(max-width:560px){.topbar{height:70px;padding:0 13px}.top-actions{gap:2px}.entry{grid-template-columns:78px 1fr;padding:19px 14px;gap:9px;min-height:175px;margin-bottom:24px}.day{font-size:43px}.entry-title{font-size:24px}.entry-preview{font-size:22px}.cloud{font-size:23px}.fab{width:74px;height:74px;font-size:45px;right:20px;bottom:20px}.dialog{padding:16px}.settings-grid{grid-template-columns:1fr}main{padding:18px 12px 100px}}
 .note-paper{overflow:visible}
+
+.lock-screen{background:#2C3E46!important;color:#f5f5f5!important;padding:0;align-items:stretch;overflow:auto}
+.pin-screen{width:min(100%,560px);min-height:100%;margin:auto;display:flex;flex-direction:column;align-items:center;padding:7vh 24px 5vh;font-family:'Caveat',cursive;color:#f4f4f4}
+.pin-notebook{width:150px;height:125px;margin:0 auto 5vh}.pin-notebook svg{width:100%;height:100%}
+.pin-screen h1{font-size:36px;font-weight:500;margin:0 0 8vh}.pin-entry{display:flex;gap:28px;margin-bottom:3vh}.pin-entry span{width:37px;height:37px;border:2px solid #d9dddf;border-radius:50%}.pin-entry span.filled{background:#e9edef}
+#pinError{min-height:24px;color:#ffb7b7;font-size:19px;margin:0 0 12px}
+.pin-pad{display:grid;grid-template-columns:repeat(3, minmax(76px,116px));gap:clamp(18px,5vh,42px) clamp(22px,6vw,54px);justify-content:center;margin:auto 0 8vh}
+.pin-pad button{width:clamp(76px,22vw,116px);height:clamp(76px,22vw,116px);border:2px solid #d9dddf;border-radius:50%;background:transparent;color:#fff;font:500 34px 'Caveat',cursive}
+.pin-pad button:active{background:#ffffff20}.forgot-pin{border:0;background:transparent;color:#f5f5f5;font:500 29px 'Caveat',cursive;margin-top:auto;padding:15px}
+.master-login{width:min(100%,360px);margin:0 auto 35px}.master-login[hidden]{display:none}.master-login .field input{background:#fff;color:#222}
+@media(max-height:720px){.pin-screen{padding-top:3vh}.pin-notebook{margin-bottom:2vh}.pin-screen h1{margin-bottom:4vh}.pin-pad{gap:12px 25px;margin-bottom:3vh}.pin-pad button{width:70px;height:70px}}
 </style>
 <script>
   if ("serviceWorker" in navigator) {
@@ -91,17 +102,28 @@ body.font-inter{--font:'Inter',sans-serif}body.font-lora{--font:'Lora',serif}bod
 </script>
 </head>
 <body class="font-caveat">
-<div id="lockScreen" class="overlay open" style="display:flex;z-index:30;background:var(--bg);color:var(--text)">
- <section class="dialog confirm" style="margin:auto">
-  <h2 id="lockTitle">Serenity · Вход в дневник</h2>
-  <p id="lockMessage">Введите пароль, чтобы открыть локальные и облачные записи</p>
-  <form id="unlockForm">
-   <div class="field"><label for="masterPassword">Пароль</label><input id="masterPassword" type="password" autocomplete="current-password" required></div>
-   <p class="hint" id="lockError" role="alert"></p>
-   <button class="primary" id="unlockButton" type="submit">Войти</button>
+<div id="lockScreen" class="overlay open lock-screen" style="display:flex;z-index:30">
+ <section class="pin-screen">
+  <div class="pin-notebook" aria-hidden="true"><svg viewBox="0 0 150 125"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M25 19 91 8q7-1 8 6l15 83q1 7-6 8l-65 11q-7 1-8-6L20 27q-1-7 5-8Z"/><path d="M18 34h13m-12 18h14m-11 18h14m-11 18h14"/><path d="m52 23 69 13q7 1 6 8l-15 72q-1 7-8 5l-67-14q-7-1-5-8l15-70q1-7 5-6Z"/><path d="m61 30 12 2m-15 16 12 2m-15 16 12 2m-15 16 12 2"/><path d="m65 101 44-62 8 5-43 63-12 7z"/><path d="m109 39 8 5"/></g></svg></div>
+  <h1 id="pinHeading">Введите пароль</h1>
+  <div id="pinEntry" class="pin-entry" aria-label="Четырёхзначный код"><span></span><span></span><span></span><span></span></div>
+  <p id="pinError" role="alert"></p>
+  <div class="pin-pad" id="pinPad">
+   <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+   <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+   <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+   <i></i><button data-digit="0">0</button><button data-backspace="1" aria-label="Стереть">&lt;</button>
+  </div>
+  <button id="forgotPinBtn" class="forgot-pin">Забыли пароль?</button>
+  <form id="unlockForm" class="master-login" hidden>
+   <h2 id="lockTitle">Serenity · Вход в дневник</h2><p id="lockMessage">Введите мастер-пароль, чтобы открыть локальные и облачные записи</p>
+   <div class="field"><label for="masterPassword">Мастер-пароль</label><input id="masterPassword" type="password" autocomplete="current-password" required></div>
+   <p class="hint" id="lockError" role="alert"></p><button class="primary" id="unlockButton" type="submit">Войти в аккаунт</button>
   </form>
  </section>
 </div>
+<div class="overlay" id="pinSetupOverlay"><section class="dialog confirm"><h2>Быстрый вход</h2><p>Придумайте PIN-код из 4 цифр и контрольный вопрос для восстановления доступа.</p><div class="field"><label>Новый PIN-код</label><input id="setupPin" inputmode="numeric" maxlength="4" type="password" placeholder="4 цифры"></div><div class="field"><label>Повторите PIN-код</label><input id="setupPin2" inputmode="numeric" maxlength="4" type="password" placeholder="Повторите PIN"></div><div class="field"><label>Контрольный вопрос</label><input id="securityQuestion" maxlength="160" placeholder="Например: Как звали моего первого питомца?"></div><div class="field"><label>Ответ (лучше длинный и уникальный)</label><input id="securityAnswer" type="password" maxlength="200"></div><p class="hint" id="setupError" role="alert"></p><div class="actions"><button class="primary" id="savePinSetup">Сохранить и продолжить</button></div></section></div>
+<div class="overlay" id="pinRecoveryOverlay"><section class="dialog confirm"><div class="dialog-head"><h2>Восстановление доступа</h2><button class="close" data-close="pinRecoveryOverlay">×</button></div><p>Выберите способ подтверждения личности.</p><div class="field"><label><input type="radio" name="recoveryMethod" value="answer" checked> Ответить на контрольный вопрос</label><div id="recoveryQuestion" class="hint"></div><input id="recoveryAnswer" type="password" placeholder="Ответ на контрольный вопрос"></div><div class="field"><label><input type="radio" name="recoveryMethod" value="master"> Ввести мастер-пароль</label><input id="recoveryMaster" type="password" placeholder="Мастер-пароль"></div><div class="field"><label>Новый PIN-код</label><input id="recoveryPin" type="password" inputmode="numeric" maxlength="4" placeholder="4 цифры"></div><p id="recoveryError" class="hint" role="alert"></p><div class="actions"><button class="primary" id="recoverPinBtn">Сбросить PIN-код</button></div></section></div>
 <header class="topbar">
  <button class="iconbtn" id="menuBtn" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
  <div class="top-actions">
@@ -174,7 +196,7 @@ body.font-inter{--font:'Inter',sans-serif}body.font-lora{--font:'Lora',serif}bod
    <div class="field"><label for="themeSelect">Тема оформления</label><select id="themeSelect"><option value="light">Светлая Serenity</option><option value="dark">Темная</option><option value="sepia">Бумажная сепия</option></select></div>
    <div class="field"><label for="fontSelect">Шрифт</label><select id="fontSelect"><option value="caveat">Caveat — рукописный</option><option value="inter">Inter</option><option value="lora">Lora</option></select></div>
   </div>
-  <h3 style="margin:18px 0 6px">Безопасность и синхронизация</h3><div class="field"><button class="secondary" id="toggleDuressSettings" type="button">Задать/изменить ложный пароль</button><div id="duressSettingsPanel" hidden><label for="duressPassword">Новый ложный пароль</label><input id="duressPassword" type="password" minlength="8" placeholder="Задать пароль принуждения"><p class="hint">Открывает отдельный демонстрационный дневник. Отпечаток ложного пароля хранится только на этом устройстве.</p><button class="secondary" id="saveDuressBtn" type="button">Сохранить ложный пароль</button></div></div><div class="actions"><span class="hint" id="syncStatus" role="status">Синхронизация ещё не запущена</span><button class="secondary" id="syncNowBtn" type="button">Синхронизировать сейчас</button></div><p class="hint">Медиа загружаются в публичный бакет только в зашифрованном виде. Ссылки публичны, но содержимое защищено AES-GCM. Для строгой приватности настройте RLS на entries и ограничьте доступ к Storage.</p>
+  <h3 style="margin:18px 0 6px">Безопасность</h3><div class="field"><button class="secondary" id="changePinBtn" type="button">Сменить ПИН-код и контрольный вопрос</button> <button class="secondary" id="logoutBtn" type="button">Выйти из аккаунта</button></div><div class="field"><button class="secondary" id="toggleDuressSettings" type="button">Задать/изменить ложный PIN-код</button><div id="duressSettingsPanel" hidden><label for="duressPassword">Ложный PIN-код (4 цифры)</label><input id="duressPassword" type="password" inputmode="numeric" maxlength="4" placeholder="4 цифры"><p class="hint">Откроет отдельный демонстрационный дневник. Используйте код, отличный от основного.</p><button class="secondary" id="saveDuressBtn" type="button">Сохранить ложный PIN</button></div></div><h3 style="margin:18px 0 6px">Синхронизация</h3><div class="actions"><span class="hint" id="syncStatus" role="status">Синхронизация ещё не запущена</span><button class="secondary" id="syncNowBtn" type="button">Синхронизировать сейчас</button></div><p class="hint">Медиа загружаются в публичный бакет только в зашифрованном виде. Ссылки публичны, но содержимое защищено AES-GCM. Для строгой приватности настройте RLS на entries и ограничьте доступ к Storage.</p>
   <div class="field"><label>Импорт старого дневника (CSV)</label><label class="primary import-label">Выбрать my_diary.csv<input type="file" id="csvFile" accept=".csv,text/csv" hidden></label><p class="hint">Поддерживаются заголовки колонок id_note, title, content, time, mood, category, creation_time и другие. Дата time читается как Unix timestamp в миллисекундах. Уже импортированные ID повторно не добавляются.</p></div>
   <div class="actions"><button class="secondary" id="exportBtn">Экспортировать CSV</button><span class="status" id="importStatus"></span></div>
  </section>
@@ -189,7 +211,56 @@ body.font-inter{--font:'Inter',sans-serif}body.font-lora{--font:'Lora',serif}bod
 (() => {
 'use strict';
 const TAGS=['работа','семья','идеи','путешествия','сны','рецепты','развлечения','план'];
+const CATEGORY_MAP={
+ 'default_category_0':'План',
+ 'default_category_2':'Друзья',
+ 'default_category_3':'Развлечение',
+ 'default_category_4':'Бизнес',
+ '9cdbbddd-9fd7-4f24-9462-23bcdb9f120d':'Шпионаж',
+ 'default_category_1':'Рецепты'
+};
 const NO_CATEGORY='Нет категории';
+function normalizeCategory(value){
+ const raw=String(value??'').trim();
+ const mapped=CATEGORY_MAP[raw]||raw;
+ const key=mapped.toLocaleLowerCase('ru');
+ if(key==='рецепты')return 'рецепты';
+ if(key==='план')return 'план';
+ if(key==='развлечение'||key==='развлечения')return 'развлечения';
+ return mapped;
+}
+function tagKey(value){return String(value??'').trim().toLocaleLowerCase('ru');}
+function buildTagCanonicalMap(source=notes){
+ const canonical=new Map();
+ const add=value=>{
+  const tag=normalizeCategory(value);
+  if(!tag)return;
+  const key=tagKey(tag);
+  if(!canonical.has(key))canonical.set(key,tag);
+ };
+ TAGS.forEach(add);
+ Object.values(CATEGORY_MAP).forEach(add);
+ add(NO_CATEGORY);
+ source.forEach(n=>add(n.tag));
+ return canonical;
+}
+function canonicalTag(value,canonical=buildTagCanonicalMap()){
+ const tag=normalizeCategory(value)||NO_CATEGORY;
+ return canonical.get(tagKey(tag))||tag;
+}
+function migrateCategoryIds(){
+ const canonical=buildTagCanonicalMap();
+ let changed=false;
+ notes=notes.map(n=>{
+  const tag=canonicalTag(n.tag,canonical);
+  if(tag!==n.tag){
+   changed=true;
+   return {...n,tag,updated:new Date().toISOString(),synced:false};
+  }
+  return n;
+ });
+ return changed;
+}
 const MOODS=[
  {emoji:'😊',label:'Радость',value:'😊 Радость'},
  {emoji:'😌',label:'Спокойствие',value:'😌 Спокойствие'},
@@ -214,6 +285,71 @@ function wordToBytes(word){const out=new Uint8Array(word.sigBytes);for(let i=0;i
 function b64(buf){return btoa(String.fromCharCode(...new Uint8Array(buf)))}function unb64(s){return Uint8Array.from(atob(s),c=>c.charCodeAt(0))}
 function setSyncStatus(message,kind='info'){const el=$('syncStatus');if(el){el.textContent=message;el.style.color=kind==='error'?'#b94a48':kind==='ok'?'#4c8a57':'';}}
 async function hashText(text){if(!window.CryptoJS)throw Error('Не загрузилась библиотека CryptoJS. Для первого запуска нужен интернет.');return CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);}
+const PIN_META='serenity-pin-envelope-v1',RECOVERY_META='serenity-recovery-envelope-v1',QUESTION_META='serenity-security-question-v1',DURESS_PIN_META='serenity-duress-pin-v1',MASTER_CHECK_META='serenity-master-check-v1';
+let sessionMasterPassword='',pinBuffer='';
+// Быстрый локальный конверт: SHA-256 для derivation (<10 ms), AES-256-CBC + HMAC-SHA256.
+// Записи дневника и ключи Supabase этим механизмом не затрагиваются.
+function secretEnvelope(secret,value){
+ if(!window.CryptoJS)throw Error('Библиотека шифрования не загружена');
+ const salt=bytesToWord(randomBytes(16));
+ const iv=bytesToWord(randomBytes(16));
+ const saltHex=salt.toString(CryptoJS.enc.Hex);
+ const aesKey=CryptoJS.SHA256(String(secret)+'|Serenity-fast-login-v1|'+saltHex+'|enc');
+ const macKey=CryptoJS.SHA256(String(secret)+'|Serenity-fast-login-v1|'+saltHex+'|mac');
+ const encrypted=CryptoJS.AES.encrypt(String(value),aesKey,{iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.Pkcs7});
+ const cipher=encrypted.ciphertext;
+ const authenticated=salt.clone().concat(iv).concat(cipher);
+ const mac=CryptoJS.HmacSHA256(authenticated,macKey);
+ return JSON.stringify({v:3,salt:saltHex,iv:iv.toString(CryptoJS.enc.Hex),cipher:CryptoJS.enc.Base64.stringify(cipher),mac:mac.toString(CryptoJS.enc.Hex)});
+}
+function openSecretEnvelope(secret,packed){
+ if(!window.CryptoJS)throw Error('Библиотека шифрования не загружена');
+ const data=JSON.parse(packed);
+ if(data.v===2){
+  // Старый формат нельзя безопасно интерпретировать как новый: просим войти мастер-паролем
+  // и создать быстрый вход заново, не запуская тяжёлую синхронную операцию в интерфейсе.
+  throw Error('Обнаружен PIN старого формата. Войдите по мастер-паролю и настройте быстрый вход заново.');
+ }
+ if(data.v!==3||!data.salt||!data.iv||!data.cipher||!data.mac)throw Error('Формат локального ключа не поддерживается. Войдите по мастер-паролю и настройте быстрый вход заново.');
+ const salt=CryptoJS.enc.Hex.parse(data.salt),iv=CryptoJS.enc.Hex.parse(data.iv);
+ if(salt.sigBytes!==16||iv.sigBytes!==16)throw Error('Повреждены параметры локального ключа');
+ const saltHex=salt.toString(CryptoJS.enc.Hex);
+ const aesKey=CryptoJS.SHA256(String(secret)+'|Serenity-fast-login-v1|'+saltHex+'|enc');
+ const macKey=CryptoJS.SHA256(String(secret)+'|Serenity-fast-login-v1|'+saltHex+'|mac');
+ const cipher=CryptoJS.enc.Base64.parse(data.cipher);
+ const expected=CryptoJS.HmacSHA256(salt.clone().concat(iv).concat(cipher),macKey).toString(CryptoJS.enc.Hex);
+ if(expected!==String(data.mac).toLowerCase())throw Error('Неверный PIN-код или контрольный ответ');
+ const decrypted=CryptoJS.AES.decrypt({ciphertext:cipher},aesKey,{iv,mode:CryptoJS.mode.CBC,padding:CryptoJS.pad.Pkcs7});
+ const out=decrypted.toString(CryptoJS.enc.Utf8);
+ if(!out)throw Error('Не удалось расшифровать локальный ключ');
+ return out;
+}
+function normalizedAnswer(v){return String(v||'').trim().toLocaleLowerCase('ru').replace(/\s+/g,' ')}
+function showLock(){
+ $('lockScreen').style.display='flex';
+ let enrolled=!!localStorage.getItem(PIN_META);
+ if(enrolled){try{const saved=JSON.parse(localStorage.getItem(PIN_META));if(saved.v!==3){[PIN_META,RECOVERY_META,QUESTION_META].forEach(k=>localStorage.removeItem(k));enrolled=false;}}catch{[PIN_META,RECOVERY_META,QUESTION_META].forEach(k=>localStorage.removeItem(k));enrolled=false;}}
+ $('pinPad').hidden=!enrolled;$('pinEntry').hidden=!enrolled;$('pinHeading').hidden=!enrolled;$('forgotPinBtn').hidden=!enrolled;
+ $('unlockForm').hidden=enrolled;
+ $('pinError').textContent='';pinBuffer='';paintPin();
+}
+function paintPin(){[...$('pinEntry').children].forEach((el,i)=>el.classList.toggle('filled',i<pinBuffer.length))}
+async function submitPin(){
+ const entered=pinBuffer;pinBuffer='';paintPin();$('pinError').textContent='';
+ try{
+  const duressHash=localStorage.getItem(DURESS_PIN_META);
+  if(duressHash&&await hashText('Serenity-duress-pin-v1:'+entered)===duressHash){
+   const fakeMaster='Serenity-fake-vault:'+entered;
+   await unlock(fakeMaster);return;
+  }
+  const master=openSecretEnvelope(entered,localStorage.getItem(PIN_META)||'');
+  await unlock(master);
+ }catch(e){$('pinError').textContent='Неверный PIN-код. Попробуйте ещё раз.'; }
+}
+function openPinSetup(){
+ $('setupPin').value='';$('setupPin2').value='';$('securityQuestion').value=localStorage.getItem(QUESTION_META)||'';$('securityAnswer').value='';$('setupError').textContent='';openOverlay('pinSetupOverlay');
+}
+
 // Единый KDF на CryptoJS: результат не зависит от наличия Web Crypto и одинаков на разных устройствах.
 async function deriveVault(password){
  if(!window.CryptoJS)throw Error('Не загрузилась библиотека CryptoJS. Проверьте интернет и обновите страницу.');
@@ -235,22 +371,106 @@ async function decryptText(value){
 function cacheKey(){return 'serenity-encrypted-cache:'+activeVault;}
 async function persist(options={}){if(!cryptoKey||!activeVault)return false;try{const blob=await encryptText(JSON.stringify(notes));localStorage.setItem(cacheKey(),JSON.stringify({vault:activeVault,blob,updated:Date.now()}));localStorage.removeItem(STORAGE);}catch(e){console.error(e);setSyncStatus('Ошибка локального шифрования: '+e.message,'error');return false;}if(options.sync!==false)await syncCloud();return true;}
 let syncPromise=null;
-async function syncCloud(){if(syncPromise)return syncPromise;syncPromise=(async()=>{if(!sb){setSyncStatus('Ошибка: Supabase SDK не загрузился','error');return false;}if(!cryptoKey||!activeVault){setSyncStatus('Сначала войдите в дневник','error');return false;}if(!navigator.onLine){setSyncStatus('Офлайн: изменения сохранены в зашифрованном localStorage','error');return false;}setSyncStatus('Синхронизация с Supabase…');try{await persist({sync:false});const batchSize=100;for(let i=0;i<notes.length;i+=batchSize){const batch=[];for(const n of notes.slice(i,i+batchSize)){batch.push({id:String(n.id),vault_id:activeVault,encrypted_data:await encryptText(JSON.stringify(n)),updated_at:Date.now()});}const {error}=await sb.from('entries').upsert(batch,{onConflict:'id'});if(error)throw error;}setSyncStatus('Успешно синхронизировано: '+notes.length+' записей · '+new Date().toLocaleTimeString('ru-RU'),'ok');return true;}catch(e){console.error('Supabase sync failed:',e);setSyncStatus('Ошибка Supabase: '+(e.message||e.details||e.code||'неизвестная ошибка'),'error');return false;}finally{syncPromise=null;}})();return syncPromise;}
-async function loadVault(){notes=[];let cached=null;try{cached=JSON.parse(localStorage.getItem(cacheKey())||'null');}catch{}if(cached?.vault===activeVault){try{notes=JSON.parse(await decryptText(cached.blob))||[];}catch(e){console.warn('Локальный кэш не открыт:',e);}}
- // Миграция кэша старой версии возможна только если его vault совпал с новым идентификатором.
- if(!cached){try{const old=JSON.parse(localStorage.getItem(CACHE_META)||'null');if(old?.vault===activeVault){notes=JSON.parse(await decryptText(old.blob))||[];}}catch(e){console.warn('Старый кэш не удалось мигрировать:',e);}}
- if(sb&&navigator.onLine){setSyncStatus('Загружаем записи из Supabase…');const {data,error}=await sb.from('entries').select('id,encrypted_data,updated_at').eq('vault_id',activeVault);if(error){setSyncStatus('Ошибка загрузки Supabase: '+(error.message||error.details||error.code),'error');}else if(data){const map=new Map(notes.map(n=>[String(n.id),n]));let failed=0;for(const row of data){try{const n=JSON.parse(await decryptText(row.encrypted_data));const old=map.get(String(n.id));if(!old||new Date(n.updated||0).getTime()>=new Date(old.updated||0).getTime())map.set(String(n.id),n);}catch(e){failed++;console.warn('Не удалось расшифровать строку',row.id,e);}}notes=[...map.values()];await persist({sync:false});setSyncStatus(`Загружено из облака: ${data.length-failed} записей${failed?`; не открыто: ${failed}`:''}`,'ok');}}
- renderFilters();renderFeed();}
+async function syncCloud(){
+ if(syncPromise)return syncPromise;
+ syncPromise=(async()=>{
+  if(!sb){setSyncStatus('Ошибка: Supabase SDK не загрузился','error');return false;}
+  if(!cryptoKey||!activeVault){setSyncStatus('Сначала войдите в дневник','error');return false;}
+  if(!navigator.onLine){setSyncStatus('Офлайн: изменения сохранены в зашифрованном localStorage','error');return false;}
+  const pending=notes.filter(n=>n.synced===false);
+  if(!pending.length){setSyncStatus('Все записи уже синхронизированы','ok');return true;}
+  setSyncStatus(`Отправка в облако: 0 из ${pending.length}…`);
+  try{
+   await persist({sync:false});
+   let sent=0;
+   for(let i=0;i<pending.length;i+=100){
+    const group=pending.slice(i,i+100),batch=[];
+    for(const n of group){
+     batch.push({id:String(n.id),vault_id:activeVault,encrypted_data:await encryptText(JSON.stringify({...n,synced:true})),updated_at:Date.now()});
+    }
+    const {error}=await sb.from('entries').upsert(batch,{onConflict:'id'});
+    if(error)throw error;
+    const acknowledged=new Map(group.map(n=>[String(n.id),n.updated]));
+    notes=notes.map(n=>{
+     const id=String(n.id);
+     return acknowledged.has(id)&&n.updated===acknowledged.get(id)?{...n,synced:true}:n;
+    });
+    sent+=group.length;
+    await persist({sync:false});
+    renderFeed();
+    setSyncStatus(`Отправлено в облако: ${sent} из ${pending.length}…`);
+   }
+   setSyncStatus(`Успешно синхронизировано: ${sent} записей · ${new Date().toLocaleTimeString('ru-RU')}`,'ok');
+   return true;
+  }catch(e){
+   console.error('Supabase sync failed:',e);
+   setSyncStatus('Ошибка Supabase: '+(e.message||e.details||e.code||'неизвестная ошибка'),'error');
+   return false;
+  }finally{syncPromise=null;}
+ })();
+ return syncPromise;
+}
+async function loadVault(){
+ notes=[];
+ let cached=null;
+ try{cached=JSON.parse(localStorage.getItem(cacheKey())||'null');}catch{}
+ if(cached?.vault===activeVault){
+  try{notes=(JSON.parse(await decryptText(cached.blob))||[]).map(n=>({...n,synced:n.synced===true}));}
+  catch(e){console.warn('Локальный кэш не открыт:',e);}
+ }
+ if(!cached){
+  try{
+   const old=JSON.parse(localStorage.getItem(CACHE_META)||'null');
+   if(old?.vault===activeVault)notes=(JSON.parse(await decryptText(old.blob))||[]).map(n=>({...n,synced:n.synced===true}));
+  }catch(e){console.warn('Старый кэш не удалось мигрировать:',e);}
+ }
+ if(sb&&navigator.onLine){
+  setSyncStatus('Загружаем записи из Supabase…');
+  try{
+   const pageSize=1000;let from=0;const allRows=[];
+   for(let pageNo=0;pageNo<10000;pageNo++){
+    const {data,error}=await sb.from('entries')
+     .select('id,encrypted_data,updated_at')
+     .eq('vault_id',activeVault)
+     .range(from,from+pageSize-1);
+    if(error)throw error;
+    const page=data||[];
+    allRows.push(...page);
+    if(page.length<pageSize)break;
+    from+=pageSize;
+   }
+   const map=new Map(notes.map(n=>[String(n.id),{...n,synced:n.synced===true}]));
+   let failed=0;
+   for(const row of allRows){
+    try{
+     const n=JSON.parse(await decryptText(row.encrypted_data));
+     n.synced=true;
+     const old=map.get(String(n.id));
+     if(!old||new Date(n.updated||row.updated_at||0).getTime()>=new Date(old.updated||0).getTime())map.set(String(n.id),n);
+    }catch(e){failed++;console.warn('Не удалось расшифровать строку',row.id,e);}
+   }
+   notes=[...map.values()];
+   await persist({sync:false});
+   setSyncStatus(`Загружено из облака: ${allRows.length-failed} записей${failed?`; не открыто: ${failed}`:''}`,'ok');
+  }catch(error){
+   setSyncStatus('Ошибка загрузки Supabase: '+(error.message||error.details||error.code||'неизвестная ошибка'),'error');
+  }
+ }
+ if(migrateCategoryIds())await persist({sync:false});
+ renderFilters();renderFeed();
+ if(!isDecoy&&navigator.onLine&&notes.some(n=>n.synced===false))await syncCloud();
+}
 async function uploadEncryptedFile(file){if(!cryptoKey?.gcmKey)throw Error('Загрузка медиа требует Web Crypto AES-GCM; запустите приложение через HTTPS/localhost.');const id=crypto.randomUUID();const bytes=await file.arrayBuffer();const iv=crypto.getRandomValues(new Uint8Array(12));const encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},cryptoKey.gcmKey,bytes);const payload=new Blob([iv,encrypted],{type:'application/octet-stream'});const path=activeVault+'/'+id+'.bin';const {error}=await sb.storage.from('media').upload(path,payload,{contentType:'application/octet-stream',upsert:false});if(error)throw error;const {data}=sb.storage.from('media').getPublicUrl(path);return {url:data.publicUrl,iv:b64(iv),name:file.name,type:file.type};}
 async function unlock(password){
+ sessionMasterPassword=password;
  if(!window.CryptoJS)throw Error('CryptoJS не загружен: проверьте подключение к интернету.');
- const fp=await hashText('Serenity-auth-v2:'+password);const duress=localStorage.getItem(DURESS_META);isDecoy=!!duress&&duress===fp;
+ const fp=await hashText('Serenity-auth-v2:'+password);if(!localStorage.getItem(DURESS_META)||localStorage.getItem(DURESS_META)!==fp)localStorage.setItem(MASTER_CHECK_META,await hashText('Serenity-master-check-v1:'+password));const duress=localStorage.getItem(DURESS_META);isDecoy=!!duress&&duress===fp;
  const candidate=await deriveVault(password);cryptoKey=candidate;activeVault=candidate.vault;
  if(isDecoy){const demoKey='serenity-decoy-created:'+activeVault;if(!localStorage.getItem(demoKey)){notes=[{id:crypto.randomUUID(),title:'Тихое утро',content:'Сегодня хорошая погода для прогулки.',date:new Date().toISOString(),tag:'идеи',mood:'😌 Спокойствие',drawing:'',updated:new Date().toISOString()},{id:crypto.randomUUID(),title:'Рецепт блинов',content:'Молоко, мука, яйца и немного хорошего настроения.',date:new Date(Date.now()-86400000).toISOString(),tag:'рецепты',mood:'😊 Радость',drawing:'',updated:new Date().toISOString()}];localStorage.setItem(demoKey,'1');await persist();}else await loadVault();}
  else await loadVault();
  const lock=$('lockScreen');if(lock)lock.style.display='none';if(isDecoy)setSyncStatus('Демо-режим активен');else if(!navigator.onLine)setSyncStatus('Офлайн · локальный режим','error');else if(!sb)setSyncStatus('Supabase SDK недоступен','error');
 }
-function lockApp(){cryptoKey=null;activeVault=null;notes=[];isDecoy=false;const lock=$('lockScreen');if(lock)lock.style.display='flex';if($('masterPassword'))$('masterPassword').value='';if($('lockTitle'))$('lockTitle').textContent='Serenity · Вход в дневник';if($('lockMessage'))$('lockMessage').textContent='Введите пароль, чтобы открыть локальные и облачные записи';if($('unlockButton'))$('unlockButton').textContent='Войти';}
+function lockApp(){cryptoKey=null;activeVault=null;notes=[];isDecoy=false;sessionMasterPassword='';if($('masterPassword'))$('masterPassword').value='';showLock();}
 
 
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
@@ -260,7 +480,15 @@ function dayParts(d){const x=new Date(d);return {weekday:new Intl.DateTimeFormat
 function plain(html){const el=document.createElement('div');el.innerHTML=html;return el.innerText||el.textContent||''}
 function safeDate(d){const x=new Date(d);return isNaN(x)?new Date().toISOString():x.toISOString()}
 function applySettings(){document.body.classList.remove('theme-dark','theme-sepia','font-inter','font-lora','font-caveat');if(savedSettings.theme==='dark')document.body.classList.add('theme-dark');if(savedSettings.theme==='sepia')document.body.classList.add('theme-sepia');document.body.classList.add('font-'+(savedSettings.font||'caveat'));$('themeSelect').value=savedSettings.theme||'light';$('fontSelect').value=savedSettings.font||'caveat'}
-function allTags(){return [...new Set([...TAGS,...notes.map(n=>n.tag).filter(t=>t&&t!==NO_CATEGORY),NO_CATEGORY])]}
+function allTags(){
+ const canonical=buildTagCanonicalMap();
+ const result=[],seen=new Set();
+ for(const value of [...TAGS,...Object.values(CATEGORY_MAP),...notes.map(n=>n.tag),NO_CATEGORY]){
+  const tag=canonicalTag(value,canonical),key=tagKey(tag);
+  if(tag&&!seen.has(key)){seen.add(key);result.push(tag);}
+ }
+ return result;
+}
 function renderFilters(){ $('tagFilters').innerHTML=allTags().map(t=>`<button class="side-item ${activeFilter===t?'active':''}" data-filter="${esc(t)}">${esc(t[0].toUpperCase()+t.slice(1))}</button>`).join('');document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{activeFilter=b.dataset.filter;renderFilters();renderFeed();closeSide()}));}
 function moodInfo(value){
  if(value===null||value===undefined||String(value).trim()==='')return null;
@@ -285,6 +513,7 @@ function setTagValue(tag){
  $('noteTag').value=value;
 }
 function selectTag(tag){
+ tag=canonicalTag(tag);
  setTagValue(tag===NO_CATEGORY?'':tag);
  $('categoryLabel').textContent=tag===NO_CATEGORY?'Теги':tag;
  setHidden('tagPicker',true);$('categoryBtn').setAttribute('aria-expanded','false');
@@ -300,12 +529,12 @@ function selectMood(value){
 function renderFeed(){
  const q=$('searchInput').value.trim().toLocaleLowerCase('ru');
  const filtered=notes.filter(n=>(activeFilter==='all'||(activeFilter===NO_CATEGORY?(!n.tag||n.tag===NO_CATEGORY):n.tag===activeFilter))&&(!q||(n.title+' '+plain(n.content||'')).toLocaleLowerCase('ru').includes(q)));
- filtered.sort((a,b)=>new Date(b.date)-new Date(a.date));
+ filtered.sort((a,b)=>new Date(b.date)-new Date(a.date)||new Date(b.updated||0)-new Date(a.updated||0));
  if(!filtered.length){$('feed').innerHTML=`<div class="empty">${q||activeFilter!=='all'?'Ничего не найдено':'Здесь пока пусто.<br>Нажмите +, чтобы создать первую запись.'}</div>`;return}
  let out='',last='';
  for(const n of filtered){const month=dateLabel(n.date);if(month!==last){out+=`<h2 class="month-title">${esc(month[0].toUpperCase()+month.slice(1))}</h2>`;last=month}
  const p=dayParts(n.date);
- const mood=moodInfo(n.mood);out+=`<article class="entry" data-id="${esc(n.id)}"><div class="entry-date"><span class="weekday">${esc(p.weekday)}</span><span class="day">${p.day}</span><span class="cloud" aria-label="Сохранено локально или синхронизируется">☁</span></div><div class="entry-body"><h3 class="entry-title">${esc(n.title||'Без названия')}${mood?` <span class="entry-mood" title="${esc(mood.label)}">${mood.emoji}</span>`:''}</h3><div class="entry-preview">${esc(plain(n.content||''))}</div>${`<div class="entry-tag">${esc(n.tag||NO_CATEGORY)}</div>`}${n.drawing?'<div class="entry-tag">✎ Есть рисунок</div>':''}</div></article>`;
+ const mood=moodInfo(n.mood);out+=`<article class="entry" data-id="${esc(n.id)}"><div class="entry-date"><span class="weekday">${esc(p.weekday)}</span><span class="day">${p.day}</span><span class="cloud ${n.synced===false?'pending':'synced'}" title="${n.synced===false?'Ожидает синхронизации':'Синхронизировано с облаком'}" aria-label="${n.synced===false?'Ожидает синхронизации':'Синхронизировано с облаком'}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 18.2h10.1a4.1 4.1 0 0 0 .5-8.2A6.1 6.1 0 0 0 6.4 8.7a4.8 4.8 0 0 0 1.1 9.5Z"/></svg></span></div><div class="entry-body"><h3 class="entry-title">${esc(n.title||'Без названия')}${mood?` <span class="entry-mood" title="${esc(mood.label)}">${mood.emoji}</span>`:''}</h3><div class="entry-preview">${esc(plain(n.content||''))}</div>${`<div class="entry-tag">${esc(n.tag||NO_CATEGORY)}</div>`}${n.drawing?'<div class="entry-tag">✎ Есть рисунок</div>':''}</div></article>`;
  }
  $('feed').innerHTML=out;$('feed').querySelectorAll('.entry').forEach(card=>card.addEventListener('click',()=>openEditor(card.dataset.id)));
 }
@@ -330,7 +559,7 @@ function saveNote(){
  const title=$('noteTitle').value.trim(),date=$('noteDate').value;
  if(!date){alert('Укажите дату записи.');return}
  const old=notes.find(n=>n.id===editingId);
- const item={id:editingId||crypto.randomUUID?.()||String(Date.now()),media:recordedMedia,title,content:$('noteContent').innerHTML,date:new Date(date).toISOString(),tag:$('noteTag').value||NO_CATEGORY,drawing:canvasData(),updated:new Date().toISOString(),mood:selectedMood};
+ const item={id:editingId||crypto.randomUUID?.()||String(Date.now()),media:recordedMedia,title,content:$('noteContent').innerHTML,date:new Date(date).toISOString(),tag:canonicalTag($('noteTag').value||NO_CATEGORY),drawing:canvasData(),updated:new Date().toISOString(),mood:selectedMood,synced:false};
  if(old)notes=notes.map(n=>n.id===editingId?item:n);else notes.push(item);
  persist();localStorage.removeItem(DRAFT);closeOverlay('editorOverlay');renderFilters();renderFeed();
 }
@@ -348,8 +577,8 @@ async function importCSV(file){
   if(ix('title')<0||ix('content')<0||ix('time')<0)throw Error('Не найдены обязательные колонки title, content, time');
   const known=new Set(notes.map(n=>n.id));let added=0;
   for(const r of rows.slice(1)){if(!r.some(v=>v.trim()))continue;const get=k=>r[ix(k)]??'';const id=get('id_note')||crypto.randomUUID?.()||String(Date.now()+added);if(known.has(id))continue;const ms=Number(get('time'));const dt=Number.isFinite(ms)&&ms>0?new Date(ms):new Date();if(isNaN(dt))continue;
-   const rawTag=get('category').trim();const lowTag=rawTag.toLowerCase();const tag=!rawTag?NO_CATEGORY:(TAGS.find(t=>t.toLowerCase()===lowTag)||(/работ|work/.test(lowTag)?'работа':/сем|family/.test(lowTag)?'семья':rawTag));
-   notes.push({id,title:get('title'),content:get('content').replace(/\r\n/g,'\n').replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])).replace(/\n/g,'<br>'),date:dt.toISOString(),tag,drawing:'',updated:new Date().toISOString(),mood:get('mood')});
+   const rawTag=get('category').trim();const normalizedTag=normalizeCategory(rawTag);const lowTag=normalizedTag.toLocaleLowerCase('ru');const tag=!normalizedTag?NO_CATEGORY:(TAGS.find(t=>t.toLowerCase()===lowTag)||(/работ|work/.test(lowTag)?'работа':/сем|family/.test(lowTag)?'семья':canonicalTag(normalizedTag)));
+   notes.push({id,title:get('title'),content:get('content').replace(/\r\n/g,'\n').replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])).replace(/\n/g,'<br>'),date:dt.toISOString(),tag,drawing:'',updated:new Date().toISOString(),mood:get('mood'),synced:false});
    known.add(id);added++;
   }await persist({sync:false});renderFilters();renderFeed();$('importStatus').textContent=`Импортировано записей: ${added}`;const synced=await syncCloud();if(synced)alert(`Импортировано ${added} записей и отправлено в Supabase.`);else alert(`Импортировано ${added} записей локально. Облачная отправка не удалась: ${$('syncStatus').textContent}`);
   }catch(e){alert('Ошибка импорта: '+e.message)}$('csvFile').value='';
@@ -358,10 +587,29 @@ async function importCSV(file){
 function exportCSV(){const headers=['id_note','title','content','time','category','mood'];const lines=[headers.join(',')];for(const n of notes){const vals=[n.id,n.title,plain(n.content),new Date(n.date).getTime(),n.tag,n.mood||''];lines.push(vals.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(','))}const blob=new Blob(['\ufeff'+lines.join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my_diary_export.csv';a.click();URL.revokeObjectURL(a.href)}
 // Supabase, вход и защита
 sb=window.supabase?.createClient(SB_URL,SB_KEY,{auth:{persistSession:false,autoRefreshToken:false}})||null;
-$('unlockForm').addEventListener('submit',async e=>{e.preventDefault();const pass=$('masterPassword').value;if(!pass){$('lockError').textContent='Введите пароль';return}try{$('unlockButton').disabled=true;$('lockError').textContent='';await unlock(pass);$('masterPassword').value='';}catch(err){$('lockError').textContent=err.message||'Не удалось открыть дневник';}finally{$('unlockButton').disabled=false;}});
+$('unlockForm').addEventListener('submit',async e=>{e.preventDefault();const pass=$('masterPassword').value;if(!pass){$('lockError').textContent='Введите мастер-пароль';return}try{$('unlockButton').disabled=true;$('lockError').textContent='';await unlock(pass);$('masterPassword').value='';if(!localStorage.getItem(PIN_META))openPinSetup();}catch(err){$('lockError').textContent=err.message||'Не удалось открыть дневник';}finally{$('unlockButton').disabled=false;}});
+$('pinPad').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.backspace){pinBuffer=pinBuffer.slice(0,-1);paintPin();return}if(b.dataset.digit!==undefined&&pinBuffer.length<4){pinBuffer+=b.dataset.digit;paintPin();if(pinBuffer.length===4)setTimeout(submitPin,90);}});
+$('forgotPinBtn').onclick=()=>{$('recoveryQuestion').textContent=localStorage.getItem(QUESTION_META)||'Контрольный вопрос не задан';$('recoveryAnswer').value='';$('recoveryMaster').value='';$('recoveryPin').value='';$('recoveryError').textContent='';openOverlay('pinRecoveryOverlay')};
+$('savePinSetup').onclick=async()=>{
+ const pin=$('setupPin').value,again=$('setupPin2').value,q=$('securityQuestion').value.trim(),a=normalizedAnswer($('securityAnswer').value);
+ if(!/^\d{4}$/.test(pin)||pin!==again){$('setupError').textContent='Введите одинаковый PIN из 4 цифр.';return}
+ if(!q||a.length<3||!sessionMasterPassword){$('setupError').textContent='Заполните контрольный вопрос и ответ.';return}
+ try{if(!activeVault)throw Error('Сначала войдите по мастер-паролю');const pinEnvelope=secretEnvelope(pin,sessionMasterPassword);const recoveryEnvelope=secretEnvelope(a,sessionMasterPassword);localStorage.setItem(PIN_META,pinEnvelope);localStorage.setItem(RECOVERY_META,recoveryEnvelope);localStorage.setItem(QUESTION_META,q);localStorage.setItem(MASTER_CHECK_META,await hashText('Serenity-master-check-v1:'+sessionMasterPassword));closeOverlay('pinSetupOverlay');$('lockScreen').style.display='none';}catch(err){$('setupError').textContent='Не удалось сохранить защиту: '+err.message;}
+};
+$('recoverPinBtn').onclick=async()=>{
+ try{
+  const method=document.querySelector('input[name="recoveryMethod"]:checked')?.value;
+  const master=method==='master'?$('recoveryMaster').value:openSecretEnvelope(normalizedAnswer($('recoveryAnswer').value),localStorage.getItem(RECOVERY_META)||'');
+  if(method==='master'){if(!master)throw Error('Введите мастер-пароль');const expected=localStorage.getItem(MASTER_CHECK_META);if(expected&&await hashText('Serenity-master-check-v1:'+master)!==expected)throw Error('Неверный мастер-пароль');if(!expected)throw Error('Для проверки мастер-пароля войдите в аккаунт по мастер-паролю и настройте быстрый вход заново.');}
+  if(!/^\d{4}$/.test($('recoveryPin').value))throw Error('Новый PIN должен состоять из 4 цифр');
+  localStorage.setItem(PIN_META,secretEnvelope($('recoveryPin').value,master));closeOverlay('pinRecoveryOverlay');pinBuffer='';paintPin();$('pinError').textContent='PIN-код изменён. Введите новый код.';
+ }catch(err){$('recoveryError').textContent=err.message||'Не удалось восстановить доступ';}
+};
 $('lockBtn').onclick=lockApp;
 $('toggleDuressSettings').onclick=()=>{const panel=$('duressSettingsPanel');if(panel)panel.hidden=!panel.hidden;};
-$('saveDuressBtn').onclick=async()=>{const p=$('duressPassword').value;if(p.length<8){alert('Ложный пароль должен содержать не менее 8 символов');return}const fp=await hashText('Serenity-auth-v2:'+p);const current=activeVault;if(current&& (await deriveVault(p)).vault===current){alert('Ложный пароль должен отличаться от текущего пароля');return}localStorage.setItem(DURESS_META,fp);$('duressPassword').value='';$('duressSettingsPanel').hidden=true;alert('Ложный пароль сохранён на этом устройстве.');};
+$('saveDuressBtn').onclick=async()=>{const p=$('duressPassword').value;if(!/^\d{4}$/.test(p)){alert('Ложный PIN должен состоять из 4 цифр');return}if(localStorage.getItem(PIN_META)){try{openSecretEnvelope(p,localStorage.getItem(PIN_META));alert('Ложный PIN не должен совпадать с основным.');return}catch{}}localStorage.setItem(DURESS_PIN_META,await hashText('Serenity-duress-pin-v1:'+p));localStorage.setItem(DURESS_META,await hashText('Serenity-auth-v2:Serenity-fake-vault:'+p));$('duressPassword').value='';$('duressSettingsPanel').hidden=true;alert('Ложный PIN сохранён на этом устройстве.');};
+$('changePinBtn').onclick=()=>{closeOverlay('settingsOverlay');openPinSetup()};
+$('logoutBtn').onclick=()=>{if(!confirm('Выйти из аккаунта на этом устройстве? PIN и локальные ключи быстрого входа будут удалены.'))return;[PIN_META,RECOVERY_META,QUESTION_META,DURESS_PIN_META,MASTER_CHECK_META,'serenity-auth-vault-v1'].forEach(k=>localStorage.removeItem(k));lockApp();closeOverlay('settingsOverlay');};
 $('syncNowBtn').onclick=async()=>{const ok=await syncCloud();if(!ok)alert($('syncStatus').textContent);};
 window.addEventListener('online',()=>{if(cryptoKey)syncCloud();});window.addEventListener('offline',()=>setSyncStatus('Офлайн · изменения сохранены локально','error'));
 let mediaRecorder=null,audioChunks=[],audioStarted=0,audioInterval=null;
@@ -376,7 +624,7 @@ $('searchBtn').onclick=()=>{$('searchBar').classList.toggle('open');if($('search
 $('searchInput').addEventListener('input',renderFeed);$('settingsBtn').onclick=() =>openOverlay('settingsOverlay');$('sideSettings').onclick=()=>{closeSide();openOverlay('settingsOverlay')};
 $('moreBtn').onclick=()=>{openOverlay('settingsOverlay')};$('addBtn').onclick=()=>openEditor();$('saveBtn').onclick=saveNote;$('deleteBtn').onclick=askDelete;$('confirmDelete').onclick=deleteNote;
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeOverlay(b.dataset.close)));
-document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeOverlay(o.id)}));
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o&&!['lockScreen','pinSetupOverlay'].includes(o.id))closeOverlay(o.id)}));
 ['noteTitle','noteDate','noteTag','noteContent'].forEach(id=>$(id).addEventListener(id==='noteContent'?'input':'input',scheduleDraft));
 $('noteTag').addEventListener('change',()=>{scheduleDraft()});
 $('noteDate').addEventListener('change',()=>{const d=new Date($('noteDate').value);if(!isNaN(d))$('noteDateLabel').textContent=new Intl.DateTimeFormat('ru-RU',{weekday:'short',day:'numeric',month:'short',year:'numeric'}).format(d)+' · '+new Intl.DateTimeFormat('ru-RU',{hour:'2-digit',minute:'2-digit'}).format(d)});
@@ -403,7 +651,7 @@ function point(e){const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.
 canvas.addEventListener('pointerdown',e=>{drawing=true;lastPoint=point(e);canvas.setPointerCapture(e.pointerId)});
 canvas.addEventListener('pointermove',e=>{if(!drawing)return;const p=point(e);ctx.beginPath();ctx.moveTo(lastPoint.x,lastPoint.y);ctx.lineTo(p.x,p.y);ctx.strokeStyle=eraser?'#ffffff':$('penColor').value;ctx.lineWidth=eraser?34:7;ctx.stroke();lastPoint=p;canvasDirty=true});
 canvas.addEventListener('pointerup',()=>{drawing=false;lastPoint=null;scheduleDraft()});canvas.addEventListener('pointercancel',()=>drawing=false);
-initCSVTags();applySettings();lockApp();
+initCSVTags();applySettings();showLock();
 // Manifest data URI: convenient metadata; a service worker must be hosted as a separate file for full offline PWA installation.
 const manifest={name:'Мой дневник',short_name:'Дневник',start_url:'.',display:'standalone',background_color:'#f2f4f5',theme_color:'#2c3e46',lang:'ru'};
 $('manifestLink').href='data:application/manifest+json;charset=utf-8,'+encodeURIComponent(JSON.stringify(manifest));
